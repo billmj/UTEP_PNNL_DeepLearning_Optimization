@@ -1,4 +1,6 @@
-Friday, November 10, 9:30-10:30am
+## Friday, November 10, 9:30-10:30am
+
+Wrapup containerization project started by Samantha and Irvin this summer
 
 Work broadly across different neural network architectures or narrow focus to specific neural network architecture?
 
