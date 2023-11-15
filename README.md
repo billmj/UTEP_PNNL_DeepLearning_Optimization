@@ -14,11 +14,11 @@ Access the book on oreilly.com using UTEP SSO
 
 ## Analytical Modeling
 
-Article with an analytical model of the memory consumption of a CNN:
+* Article with an analytical model of the memory consumption of a CNN:
 
 https://frankdenneman.nl/2022/07/15/training-vs-inference-memory-consumption-by-neural-networks/
 
-Paper with analytical models of computation, memory usage, and communication for parallel training of CNNs:
+* Paper with analytical models of computation, memory usage, and communication for parallel training of CNNs:
 
 An Oracle for Guiding Large-Scale Model/Hybrid Parallel Training of Convolutional Neural Networks
 
