@@ -1,5 +1,9 @@
 # utep-pnnl-ddl
 
+## Project Proposal
+
+See abstract and narrative PDF files in the proposal directory
+
 ## Graph Neural Networks Tutorial
 
 Hands-On Graph Neural Networks Using Python
