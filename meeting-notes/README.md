@@ -1,6 +1,6 @@
 ## Friday, November 10, 9:30-10:30am
 
-Wrap up containerization project started by Samantha and Irvin this summer and submit paper on results
+Wrap up containerization project started by Samantha and Irvin (and Rogelio) this summer and submit paper on results
 
 Work broadly across different neural network architectures or narrow focus to specific neural network architecture?
 
