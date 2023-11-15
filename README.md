@@ -1,5 +1,7 @@
 # utep-pnnl-ddl
 
+## Graph Neural Networks Tutorials
+
 Hands-On Graph Neural Networks Using Python
 
 https://github.com/PacktPublishing/Hands-On-Graph-Neural-Networks-Using-Python
