@@ -7,7 +7,7 @@ Shirley outlined project tasks (see timeline on p. 11 of the proposal narrative)
 + Develop analytical models of different neural network models
 + Construct empirical models of benchmarks and compare with analytical model predictions
 + Measure communication performance of distributed deep learning using Score-P
-  ++ Cilium (https://cilium.io/) may also be useful (suggested by Deepak)
+++ Cilium (https://cilium.io/) may also be useful (suggested by Deepak)
 + Optimize coupled simulation-deep learning workflows with domain science collaborators
   
 Work broadly across different neural network architectures or narrow focus to specific neural network architecture?
