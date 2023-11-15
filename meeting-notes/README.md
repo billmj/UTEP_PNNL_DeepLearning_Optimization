@@ -26,3 +26,4 @@ Initial steps:
 Next meeting:
 + No meeting November 24 because of Thanksgiving holiday
 + So next meeting will be Friday, Dec. 1, 9:30-10:30am
+  ++ Shirley will send Zoom invite
