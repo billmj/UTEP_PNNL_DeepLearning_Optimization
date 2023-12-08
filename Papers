@@ -5,3 +5,10 @@
 2. Bridging the Gap Between Memory and Communication Efficiency on Distributed Deep Learning Systems, by Zhao et al., 2021
   Link: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9398682
 
+3. Maciej Besta, Pawel Renc, Robert Gerstenberger, Paolo Sylos Labini, Alexandros Ziogas, Tiancheng Chen, Lukas Gianinazzi, 
+Florian Scheidl, Kalman Szenes, Armon Carigiet, Patrick Iff, Grzegorz Kwasniewski, Raghavendra Kanakagiri, Chio Ge, Sammy Jaeger, 
+Jarosław Wąs, Flavio Vella, and Torsten Hoefler. 2023. High-Performance and Programmable Attentional Graph Neural Networks 
+with Global Tensor Formulations. In Proceedings of the International Conference for High Performance Computing, Networking, Storage 
+and Analysis (SC '23). Association for Computing Machinery, New York, NY, USA, Article 66, 1–16. 
+https://doi.org/10.1145/3581784.3607067
+
