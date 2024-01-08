@@ -12,6 +12,6 @@ with Global Tensor Formulations. In Proceedings of the International Conference 
 and Analysis (SC '23). Association for Computing Machinery, New York, NY, USA, Article 66, 1–16. 
 https://doi.org/10.1145/3581784.3607067
 
-M. Eydenberg, M. Plagge and S. Rajamanickam, "A Comparison of Spectral and Spatial Graph Convolutional Neural Network Kernels Using 
+4. M. Eydenberg, M. Plagge and S. Rajamanickam, "A Comparison of Spectral and Spatial Graph Convolutional Neural Network Kernels Using 
 GraphSAGE-Sparse," 2023 IEEE International Parallel and Distributed Processing Symposium Workshops (IPDPSW), 
 St. Petersburg, FL, USA, 2023, pp. 189-198, doi: 10.1109/IPDPSW59300.2023.00041.
