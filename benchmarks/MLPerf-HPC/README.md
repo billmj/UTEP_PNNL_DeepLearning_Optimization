@@ -1,0 +1,22 @@
+Clone the repo at https://github.com/mlcommons/hpc_results_v3.0/ 
+cd into hpc_results_v3.0/HPE+LBNL/benchmarks
+
+To run cosmoflow on Perlmutter on 128 GPU nodes using 4 A100 GPUs/node:
+cd cosmoflow/implementations
+Follow the instructions in perlmutter_128x4/README.md:..
+cd cosmoflow-pytorch
+Change account number in run_pm.sub
+Then type:
+source configs/config_pm_128x4x1.sh
+sbatch -N $DGXNNODES -t $WALLTIME run_pm.sub
+This will run cosmoflow using the train and validation data in Steven Farrell’s scratch directory, which he said is OK for us to use. You don’t need to have loaded any modules because it runs in a shifter container.
+echo $DATADIR
+/pscratch/sd/s/sfarrell/cosmoflow-benchmark/data/hpc_v2.0_gzip
+
+
+Follow a similar procedure to run the other MLPerf HPC benchmarks.
+
+I have successfully run the cosmoflow job and I have a deepcam job in the queue now.
+
+My cosmoflow job took at twice as long as the time reported at https://mlcommons.org/benchmarks/training-hpc/ . Could be because I ran it from my home directory. I will try again using Common storage.
+![image](https://github.com/mooresv/utep-pnnl-ddl/assets/20074442/c94eb9bd-cbcd-4b34-9d60-6213a262eae0)
