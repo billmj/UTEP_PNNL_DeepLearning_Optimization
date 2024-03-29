@@ -3,7 +3,7 @@ cd into hpc_results_v3.0/HPE+LBNL/benchmarks
 
 To run cosmoflow on 128 GPU nodes using 4 A100 GPUs/node:
 cd cosmoflow/implementations
-Follow the instructions in perlmutter_128x4/README.md:..
+Follow the instructions in perlmutter_128x4/README.md:
 cd cosmoflow-pytorch
 Change account number in run_pm.sub
 Then type:
