@@ -20,3 +20,6 @@ I have successfully run the cosmoflow job and I have a deepcam job in the queue 
 
 My cosmoflow job took at twice as long as the time reported at https://mlcommons.org/benchmarks/training-hpc/ . Could be because I ran it from my home directory. I will try again using Common storage.
 
+Paper from NVIDIA on optimizing MLPerf training on H100 GPUs
+Leading MLPerf Training 2.1 with Full Stack Optimizations for AI
+https://developer.nvidia.com/blog/leading-mlperf-training-2-1-with-full-stack-optimizations-for-ai/
