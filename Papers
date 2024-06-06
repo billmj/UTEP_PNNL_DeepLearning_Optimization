@@ -23,4 +23,8 @@ architectures. Commun. ACM 52, 4 (April 2009), 65–76. https://doi.org/10.1145/
 on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS), St. Louis, MO, USA, 2021, pp. 7-17, 
 doi: 10.1109/PMBS54543.2021.00007. (Includes roofline models of Cosmoflow and DeepCAM)
 
+7. 	Charlene Yang, Yunsong Wang, Thorsten Kurth, Steven Farrell, Samuel Williams:
+Hierarchical Roofline Performance Analysis for Deep Learning Applications. SAI (2) 2021: 473-491
+https://link.springer.com/chapter/10.1007/978-3-030-80126-7_35 (includes roofline models of DeepCAM)
+
 
