@@ -15,3 +15,12 @@ https://doi.org/10.1145/3581784.3607067
 4. M. Eydenberg, M. Plagge and S. Rajamanickam, "A Comparison of Spectral and Spatial Graph Convolutional Neural Network Kernels Using 
 GraphSAGE-Sparse," 2023 IEEE International Parallel and Distributed Processing Symposium Workshops (IPDPSW), 
 St. Petersburg, FL, USA, 2023, pp. 189-198, doi: 10.1109/IPDPSW59300.2023.00041.
+
+5. Samuel Williams, Andrew Waterman, and David Patterson. 2009. Roofline: an insightful visual performance model for multicore 
+architectures. Commun. ACM 52, 4 (April 2009), 65–76. https://doi.org/10.1145/1498765.1498785
+
+6.  K. Z. Ibrahim et al., "Architectural Requirements for Deep Learning Workloads in HPC Environments," 2021 International Workshop 
+on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS), St. Louis, MO, USA, 2021, pp. 7-17, 
+doi: 10.1109/PMBS54543.2021.00007. (Includes roofline models of Cosmoflow and DeepCAM)
+
+
