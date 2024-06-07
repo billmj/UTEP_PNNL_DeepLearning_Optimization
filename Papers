@@ -27,4 +27,9 @@ doi: 10.1109/PMBS54543.2021.00007. (Includes roofline models of Cosmoflow and De
 Hierarchical Roofline Performance Analysis for Deep Learning Applications. SAI (2) 2021: 473-491
 https://link.springer.com/chapter/10.1007/978-3-030-80126-7_35 (includes roofline models of DeepCAM)
 
+8. Mingzhen Li, Hailong Yang, Shanjun Zhang, Fengwei Yu, Ruihao Gong, Yi Liu, Zhongzhi Luan, and Depei Qian. 2023. Exploiting Subgraph 
+Similarities for Efficient Auto-tuning of Tensor Programs. In Proceedings of the 52nd International Conference on Parallel Processing 
+(ICPP '23). Association for Computing Machinery, New York, NY, USA, 786–796. https://doi.org/10.1145/3605573.3605596
+(review presentation given by Briana in 7 June 2024 project meeting)
+
 
