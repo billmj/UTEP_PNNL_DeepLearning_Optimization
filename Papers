@@ -32,4 +32,8 @@ Similarities for Efficient Auto-tuning of Tensor Programs. In Proceedings of the
 (ICPP '23). Association for Computing Machinery, New York, NY, USA, 786–796. https://doi.org/10.1145/3605573.3605596
 (review presentation given by Briana in 7 June 2024 project meeting)
 
+9. Gocht, A., Schöne, R., Frenzel, J. (2021). Advanced Python Performance Monitoring with Score-P. In: Mix, H., Niethammer, C., Zhou, 
+H., Nagel, W.E., Resch, M.M. (eds) Tools for High Performance Computing 2018 / 2019. 
+Springer, Cham. https://doi.org/10.1007/978-3-030-66057-4_14
+
 
