@@ -26,7 +26,7 @@ export PAPI_CUDA_ROOT=$CUDA_HOME
 Optionally - you can also place:
 
 ```bash
-export PAPI_CUDA_ROOT=$CRAY_PAPI_PREFIX 
+export PAPI_CUDA_ROOT=$CRAY_CUDATOOLKIT_PREFIX 
 ```
 in case of potential errors.
 
