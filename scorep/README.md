@@ -1,6 +1,6 @@
 # README.md
 
-This directory provides a guide for setting up Score-P version 8.4 and CudeGUI version 4.8.2 on NERSC's Perlmutter. 
+This file provides a guide for setting up Score-P version 8.4 and CudeGUI version 4.8.2 on NERSC's Perlmutter. 
 - Score-P is a software tool designed for performance analysis of HPC applications. Follow the steps below to download, configure, and install Score-P. These steps followed the installation guide given at https://github.com/score-p/scorep_binding_python/wiki.
 - Cube, which is used as performance report explorer for Scalasca and Score-P, is a generic tool for displaying a multi-dimensional performance space consisting of the dimensions:
   - performance metric
