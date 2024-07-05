@@ -15,12 +15,18 @@ This project aims to analyze and optimize communication overhead in federated le
 **Environment Setup:**
 - Load Necessary Modules:
   - Python: `module load python`
-  - MPI Libraries: `module load mpi`
-- Install Dependencies:
-  - Use a virtual environment or conda.
-  - Install necessary Python libraries using requirements.txt
+  
+### Installing Dependencies
 
-### 2. Baseline Run
+2. **Using Conda**:
+   If you are using Conda, you can create a new environment and install the dependencies from the `requirements.txt` file by running the following commands:
+
+   ```shell
+   conda create --name your_env_name python=3.8
+   conda activate your_env_name
+   pip install -r requirements.txt
+
+### 3. Baseline Run
 
 **Execute Existing Code:**
 - Run federated learning code on the UNSW dataset.
@@ -29,7 +35,7 @@ This project aims to analyze and optimize communication overhead in federated le
 - Measure and record communication overhead metrics such as latency, bandwidth usage, and total communication time.
 - Use logging and profiling tools for data collection.
 
-### 3. Profiling and Analysis
+### 4. Profiling and Analysis
 
 **Profiling Tools:**
 - Use HPC profiling tools to analyze communication patterns:
@@ -40,7 +46,7 @@ This project aims to analyze and optimize communication overhead in federated le
 - Analyze profiling data to identify major sources of communication overhead.
 - Focus on functions or communication calls that take the most time or resources.
 
-### 4. Optimization Strategies
+### 5. Optimization Strategies
 
 **Data Parallelism:**
 - Distribute the dataset across multiple nodes.
@@ -50,7 +56,7 @@ This project aims to analyze and optimize communication overhead in federated le
 - Divide the neural network model across different nodes.
 - Use model parallelism techniques available in deep learning frameworks.
 
-### 5. Performance Modeling
+### 6. Performance Modeling
 
 **Simulate Different Strategies:**
 - Use performance modeling tools to simulate various optimization strategies:
