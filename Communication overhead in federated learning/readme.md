@@ -50,7 +50,6 @@ This project aims to analyze and optimize communication overhead in federated le
 - Divide the neural network model across different nodes.
 - Use model parallelism techniques available in deep learning frameworks.
 
-
 ### 5. Performance Modeling
 
 **Simulate Different Strategies:**
@@ -88,4 +87,12 @@ This project aims to analyze and optimize communication overhead in federated le
 
 ### Step 1: Ensure Datasets are Prepared
 ```sh
-python create_dataset_for_clients.py -n 50  # Number of clients
+python create_dataset_for_clients.py -n 50  # Number of clients in this case for 50 clients
+```
+
+### Step 2: To run the experiment, specify the number of clients, number of rounds, and batch size as arguments:
+```sh
+./run.sh 50 20 32
+```
+
+Pressing Ctrl+C will terminate all processes
