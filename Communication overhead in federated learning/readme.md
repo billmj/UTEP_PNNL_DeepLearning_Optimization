@@ -101,3 +101,7 @@ Pressing Ctrl+C will terminate all processes
 
 - Perform detailed profiling to identify bottlenecks in the current system.
 - Start GPU optimizations to accelerate computations and further reduce communication overhead.
+
+## Acknowledgments
+
+This research used resources of the National Energy Research Scientific Computing Center, a DOE Office of Science User Facility supported by the Office of Science of the U.S. Department of Energy under Contract No. DE-AC02-05CH11231 using NERSC award ASCR-ERCAP0030084.
