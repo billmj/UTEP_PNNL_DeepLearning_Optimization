@@ -78,10 +78,7 @@ This project aims to analyze and optimize communication overhead in federated le
     - Good communication efficiency with reasonable data transfer sizes and communication times.
     - Non-linear increase in communication overhead as client numbers grow, suggesting effective management of distributed computation.
 
-## Next Steps/Plans
 
-- Perform detailed profiling to identify bottlenecks in the current system.
-- Start GPU optimizations to accelerate computations and further reduce communication overhead.
 
 ## Getting Started (baseline experiments)
 
@@ -96,3 +93,11 @@ python create_dataset_for_clients.py -n 50  # Number of clients in this case for
 ```
 
 Pressing Ctrl+C will terminate all processes
+
+
+
+
+## Next Steps/Plans
+
+- Perform detailed profiling to identify bottlenecks in the current system.
+- Start GPU optimizations to accelerate computations and further reduce communication overhead.
