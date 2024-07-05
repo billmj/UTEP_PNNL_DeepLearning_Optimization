@@ -84,6 +84,25 @@ This project aims to analyze and optimize communication overhead in federated le
     - Good communication efficiency with reasonable data transfer sizes and communication times.
     - Non-linear increase in communication overhead as client numbers grow, suggesting effective management of distributed computation.
 
+## Communication Metrics
+
+**Average_RTT (s):**
+   This is a direct measure of the latency in communication, reflecting the round-trip time for data to travel between the server and clients.
+
+**Total_Data_Transferred (MB):**
+   This reflects the volume of data exchanged, which contributes to the communication load and can affect network bandwidth.
+
+**Comm_Frequency:**
+   This indicates how often communication events occur, which impacts the frequency of overhead incurred.
+
+**Total_Communication_Time (s):**
+   This measures the total time spent on communication activities between the server and clients.
+
+**Client_Compute_Time (s) and Server_Aggregate_Time (s):**
+   While these primarily measure computation time, they are important for understanding the overall process and identifying if communication delays are affecting computation phases.
+
+**Round_Total_Time (s):**
+   This includes all components (communication, computation, and aggregation) and helps in assessing the overall efficiency of each round. By comparing it with individual metrics, you can isolate the communication overhead.
 
 
 ## Getting Started (baseline experiments)
