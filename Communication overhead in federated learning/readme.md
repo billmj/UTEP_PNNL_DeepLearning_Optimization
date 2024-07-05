@@ -84,7 +84,7 @@ This project aims to analyze and optimize communication overhead in federated le
     - Good communication efficiency with reasonable data transfer sizes and communication times.
     - Non-linear increase in communication overhead as client numbers grow, suggesting effective management of distributed computation.
 
-## Communication Metrics
+## Communication Metrics in baseline
 
 **Average_RTT (s):**
    This is a direct measure of the latency in communication, reflecting the round-trip time for data to travel between the server and clients.
