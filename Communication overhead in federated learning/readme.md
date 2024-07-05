@@ -83,16 +83,16 @@ This project aims to analyze and optimize communication overhead in federated le
 - Perform detailed profiling to identify bottlenecks in the current system.
 - Start GPU optimizations to accelerate computations and further reduce communication overhead.
 
-## Getting Started
+## Getting Started (baseline experiments)
 
 ### Step 1: Ensure Datasets are Prepared
 ```sh
 python create_dataset_for_clients.py -n 50  # Number of clients in this case for 50 clients
 ```
 
-### Step 2: To run the experiment, specify the number of clients, number of rounds, and batch size as arguments:
+### Step 2: To run baseline experiments, specify the number of clients, number of rounds, and batch size as arguments:
 ```sh
-./run.sh 50 20 32
+./run.sh 50 20 32  # Number of clients 50, rounds -20 , batch size - 32
 ```
 
 Pressing Ctrl+C will terminate all processes
