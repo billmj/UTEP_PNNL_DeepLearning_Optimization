@@ -85,7 +85,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-
 ```
 
 Lastly, we ran the build for score-p which was successful after all these minor alterations were made to the initial installation process.
-- Build can take 35-45 minutes.
+- Build can take 40-45 minutes.
 
 ```bash
 make 
