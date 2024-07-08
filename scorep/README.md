@@ -104,7 +104,7 @@ To install the python bindings you simply need to clone the repository, and inst
 
 ```bash
 git clone https://github.com/score-p/scorep_binding_python
-cd scorep_python_bindings/
+cd scorep_binding_python/
 pip3 install .
 ```
 
