@@ -16,9 +16,7 @@ echo $DATADIR
 
 Follow a similar procedure to run the other MLPerf HPC benchmarks.
 
-I have successfully run the cosmoflow job and I have a deepcam job in the queue now.
-
-My cosmoflow job took at twice as long as the time reported at https://mlcommons.org/benchmarks/training-hpc/ . Could be because I ran it from my home directory. I will try again using Common storage.
+My cosmoflow job took at twice as long as the time reported at https://mlcommons.org/benchmarks/training-hpc/ , and running from my $SCRATCH directory didn't make much difference.
 
 Paper from NVIDIA on optimizing MLPerf training on H100 GPUs
 Leading MLPerf Training 2.1 with Full Stack Optimizations for AI
