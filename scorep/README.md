@@ -53,7 +53,7 @@ conda install -c conda-forge qt=5
 Download [Score-P 8.4](https://www.vi-hps.org/projects/score-p):
 
 ```bash
-wget https://perftools.pages.jsc.fz-juelich.de/cicd/cubegui/branches/master/sources.08ac1e34.tar.gz
+wget https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-8.4/scorep-8.4.tar.gz
 tar -xf scorep-8.4.tar.gz
 cd scorep-8.4/
 mkdir _build
