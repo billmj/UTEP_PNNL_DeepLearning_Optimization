@@ -150,6 +150,7 @@ We ran into issues with the 'cubelib-config' file not being found during the con
   - In our case, the desired installation path is --> ‘$HOME/cubegui’
 - We found our 'cubelib-config' file within the scorep directory that we built above.
   - It is located in the 'bin' directory within the '--prefix' that was entered in the Score-P configuration.
+- Build can take 40-45 minutes.
 
 ```bash
 ../configure --prefix=$HOME/cubegui --with-cubelib=/path-to-scorep/bin
