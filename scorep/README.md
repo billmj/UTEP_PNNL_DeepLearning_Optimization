@@ -78,7 +78,7 @@ This allowed the configuration to be complete, but we still ran into more issues
 - Modified environment variables LD_LIBRARY_PATH and LIBRARY_PATH by specifying the path to the 'lib' directory in both libunwind and libbfd.
 
 ```bash
-../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=/path-to-scorep/vendor/libunwind –with-libbfd=/path-to-scorep/vendor/
+../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=/path-to-scorep/vendor/libunwind –with-libbfd=/path-to-scorep/vendor/libbfd
 libbfd
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-scorep/vendor/libbfd/lib
 export LIBRARY_PATH=$LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-scorep/vendor/libbfd/lib
