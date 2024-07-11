@@ -66,7 +66,7 @@ There was trouble finding libbfd and libunwind libraries during the initial conf
 - We specify the path where we want our scorep 8.4 to be installed by setting ‘--prefix’ equal to that desired path.
   - In our case, the desired installation path is --> ‘$HOME/scorep’
 - We tell the configuration to download both the ‘libbfd’ and ‘libunwind’ libraries.
-- Configuration can take 5-10 minutes.
+- Configuration can take 8-10 minutes.
 
 ```bash
 ../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=download –with-libbfd=download
