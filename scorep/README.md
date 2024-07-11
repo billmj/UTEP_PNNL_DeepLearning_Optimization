@@ -103,7 +103,7 @@ export PATH=$PATH:/path-to-scorep/bin
 To install the python bindings you simply need to clone the repository, and install it using pip
 
 ```bash
-git clone https://github.com/score-p/scorep_binding_python
+git clone https://github.com/score-p/scorep_binding_python.git
 cd scorep_binding_python/
 pip3 install .
 ```
