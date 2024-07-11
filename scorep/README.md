@@ -69,16 +69,16 @@ There was trouble finding libbfd and libunwind libraries during the initial conf
 - Configuration can take 8-10 minutes.
 
 ```bash
-../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=download –with-libbfd=download
+../configure –enable-shared –prefix=$/global/homes/<first letter of username>/<username>/scorep –with-libunwind=download –with-libbfd=download
 ```
 
 This allowed the configuration to be complete, but we still ran into more issues further down the line when running the make. To resolve these issues we needed to reconfigure our score-p and a couple of enviornment variables.
 - Libraries should be installed in a vendor folder located in your prefix directory.
-  - In our case the location was --> '$HOME/scorep/vendor/libunwind' and '$HOME/scorep/vendor/libbfd'
+  - In our case the location was --> '$/global/homes/<first letter of username>/<username>/scorep/vendor/libunwind' and '$/global/homes/<first letter of username>/<username>/scorep/vendor/libbfd'
 - Modified environment variables LD_LIBRARY_PATH and LIBRARY_PATH by specifying the path to the 'lib' directory in both libunwind and libbfd.
 
 ```bash
-../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=/path-to-scorep/vendor/libunwind –with-libbfd=/path-to-scorep/vendor/libbfd
+../configure –enable-shared –prefix=$/global/homes/<first letter of username>/<username>/scorep –with-libunwind=/path-to-scorep/vendor/libunwind –with-libbfd=/path-to-scorep/vendor/libbfd
 libbfd
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-scorep/vendor/libbfd/lib
 export LIBRARY_PATH=$LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-scorep/vendor/libbfd/lib
@@ -147,13 +147,13 @@ Configure and Install Cube GUI:
 
 We ran into issues with the 'cubelib-config' file not being found during the configuration process. We resolved issues by doing the following:
 - We specify the path where we want our Cube GUI to be installed by setting ‘--prefix’ equal to that desired path.
-  - In our case, the desired installation path is --> ‘$HOME/cubegui’
+  - In our case, the desired installation path is --> ‘$/global/homes/<first letter of username>/<username>/cubegui’
 - We found our 'cubelib-config' file within the scorep directory that we built above.
   - It is located in the 'bin' directory within the '--prefix' that was entered in the Score-P configuration.
 - Build can take 40-45 minutes.
 
 ```bash
-../configure --prefix=$HOME/cubegui --with-cubelib=/path-to-scorep/bin
+../configure --prefix=$/global/homes/<first letter of username>/<username>/cubegui --with-cubelib=/path-to-scorep/bin
 make 
 make install
 ```
