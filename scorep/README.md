@@ -70,7 +70,7 @@ There was trouble finding libbfd and libunwind libraries during the initial conf
 - Configuration can take 8-10 minutes.
 
 ```bash
-../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=download –with-libbfd=download
+../configure --enable-shared --prefix=$HOME/scorep --with-libunwind=download --with-libbfd=download
 ```
 
 This allowed the configuration to be complete, but we still ran into more issues further down the line when running the make. To resolve these issues we needed to reconfigure our score-p and a couple of enviornment variables.
@@ -79,7 +79,7 @@ This allowed the configuration to be complete, but we still ran into more issues
 - Modified environment variables LD_LIBRARY_PATH and LIBRARY_PATH by specifying the path to the 'lib' directory in both libunwind and libbfd.
 
 ```bash
-../configure –enable-shared –prefix=$HOME/scorep –with-libunwind=/path-to-scorep/vendor/libunwind –with-libbfd=/path-to-scorep/vendor/libbfd
+../configure --enable-shared –prefix=$HOME/scorep --with-libunwind=/path-to-scorep/vendor/libunwind --with-libbfd=/path-to-scorep/vendor/libbfd
 libbfd
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-scorep/vendor/libbfd/lib
 export LIBRARY_PATH=$LIBRARY_PATH:/path-to-scorep/vendor/libunwind/lib:/path-to-scorep/vendor/libbfd/lib
