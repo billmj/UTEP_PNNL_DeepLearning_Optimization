@@ -118,7 +118,7 @@ More information on score-p usage can be found on the [Score-P Binding Python Gi
 
 ### Invoking Score-P
 
-You can profile your application using the python bindings that were just installed. To do this, allow the scorep python module execute your application.
+You can profile your application using the python bindings that were just installed. To do this, allow the scorep python module to execute your application.
 - The testing script can be found within the test folder in the scorep binding python git directory that was cloned.
 - Must be within this test folder when invoking scorep for profiling and tracing. If not, you may encounter a 'scorep._bindings' error when executing.
 
