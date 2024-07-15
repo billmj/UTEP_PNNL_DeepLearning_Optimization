@@ -23,7 +23,7 @@ After you have successfully created an account with globus you can transfer the 
 
 For example:
 
-![Globus example](https://photos.app.goo.gl/xafoTKvQ3SmzJmQ36)
+![globusex](https://github.com/user-attachments/assets/13c594b1-a77f-42a8-bace-6e3f8cedf22c)
 
 You then need to select the start button on the panel in which you are transferring from. In the example above since I am transferring data from the community file system (panel on the left) to the scratch file system (panel on the right) I would press the start button on the left panel -- the community file system side.
 
