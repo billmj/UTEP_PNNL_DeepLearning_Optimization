@@ -19,6 +19,7 @@ This file provides a guide for setting up Score-P version 8.4 and CudeGUI versio
   - [Download NoMachine](#download-nomachine)
   - [Create a new connection for Perlmutter within NoMachine](#create-a-new-connection-for-perlmutter-within-nomachine)
   - [Configure and Build Cube GUI](#configure-and-build-cube-gui)
+  - [Profile Visualization](#profile-visualization)
 
 ## Prerequisites
 
@@ -185,4 +186,19 @@ Lastly, be sure to add the path that you entered in '--prefix' to the $PATH envi
 
 ```bash
 export PATH=$PATH:/path-to-cubegui/bin
+```
+
+## Profile Visualization
+
+The folder, which was created when invoking scorep, should contain different files:
+
+```bash
+profile.cubex
+scorep.cfg
+```
+
+The profiling is saved in profile.cubex. With cube installed you can do:
+
+```bash
+cube scorep-20180514_1012_10320848076853/profile.cubex
 ```
