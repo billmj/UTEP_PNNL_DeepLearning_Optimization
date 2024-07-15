@@ -197,7 +197,7 @@ profile.cubex
 scorep.cfg
 ```
 
-The profiling is saved in profile.cubex. With cube installed you can do:
+The profiling is saved within profile.cubex, with cube installed we can view the profile information through the GUI:
 
 ```bash
 cube scorep-20180514_1012_10320848076853/profile.cubex
