@@ -32,7 +32,7 @@ This project aims to analyze and optimize communication overhead in federated le
 - Run federated learning code on the UNSW dataset.
 
 **Collect Baseline Data:**
-- Measure and record communication overhead metrics such as average Round Trip Time (RTT) in seconds,uplink and downlink data transfer in megabytes (MB), computation and communication time per round in seconds.
+- Measure and record communication overhead metrics such as average Round Trip Time (RTT) in seconds, uplink and downlink data transfer in megabytes (MB), computation and communication time per round in seconds.
 - Track model performance metrics such as Accuracy per round as well as final accuracy with early stopping, F1-score, precision, recall, ROC AUC, and Matthews Correlation Coefficient
 
 ### 4. Profiling and Analysis
