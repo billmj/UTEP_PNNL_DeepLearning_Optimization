@@ -103,7 +103,7 @@ This notebook serves as the starting point for the federated learning process, p
 
 ## Current Progress in baseline model
 ## Scalability in baseline approach
-![Scalability Analysis](Figures/#5.Scalability.png)
+![Scalability Analysis](Figures/5.Scalability.png)
 
 All baseline models were run using the Exclusive CPU Node on Perlmutter, equipped with AMD EPYC 7763 64-Core Processor (256 CPUs) and 503 GiB of memory, to ensure consistent performance.
 
