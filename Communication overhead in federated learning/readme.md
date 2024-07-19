@@ -9,12 +9,12 @@ This project aims to analyze and optimize communication overhead in federated le
 ### 1. Initial Setup
 
 **Access NERSC’s Perlmutter:**
-- Ensure active account and necessary permissions.
-- Familiarize with user guides and documentation.
+- Ensure you have an active account and necessary permissions.
+- Familiarize yourself with user guides and documentation.
 
 **Environment Setup:**
 - Load Necessary Modules:
-  - Python: `module load python`
+  - : `module load python`
   
 ### Installing Dependencies
 
@@ -38,12 +38,12 @@ This project aims to analyze and optimize communication overhead in federated le
 ### 4. Profiling and Analysis
 
 **Profiling Tools:**
-- Use HPC profiling tools to analyze communication patterns:
+- Utilize HPC profiling tools to analyze communication patterns:
   - **Score-P**: Install, configure, and instrument code to collect performance data.
-  - **Tau**: Install, configure, and instrument code for detailed performance analysis.
+  - **Tau**: Install, configure, and instrument the code for detailed performance analysis.
 
 **Identify Bottlenecks:**
-- Analyze profiling data to identify major sources of communication overhead.
+- Analyze the profiling data to identify major sources of communication overhead.
 - Focus on functions or communication calls that take the most time or resources.
 
 ### 5. Optimization Strategies
@@ -68,7 +68,7 @@ This project aims to analyze and optimize communication overhead in federated le
 
 ## Code Structure
 
-### Python Scripts:
+###  Scripts:
 1. `federated_learning_main.py`: The main script to run federated learning experiments. It sets up the experiment, loads data, and executes the federated learning process.
 
 2. `utils.py`: Contains utility functions for data loading, preprocessing, and federated learning implementation. This includes functions for:
@@ -96,7 +96,7 @@ This project aims to analyze and optimize communication overhead in federated le
 This notebook serves as the starting point for the federated learning process, preparing the data for use in the main federated learning script.
 
 ### Other Files:
-5. `requirements.txt`: Lists all the Python dependencies required to run the project.
+5. `requirements.txt`: Lists all the  dependencies required to run the project.
 
 6. `README.md`: Provides an overview of the project, instructions for setup and running experiments, and summary of current progress.
 
@@ -163,7 +163,7 @@ The baseline results provide insights into the trade-offs between model performa
 
 ### Step 1: To run baseline experiments, specify the number of clients, number of rounds, and batch size as arguments:
 ```sh
-python federated_learning_main.py <num_clients> <batch_size> #Replace `<num_clients>` with the number of clients (e.g., 10, 50, 100) and `<batch_size>` with the desired batch size (e.g., 32, 64, 128, 256).
+ federated_learning_main.py <num_clients> <batch_size> #Replace `<num_clients>` with the number of clients (e.g., 10, 50, 100) and `<batch_size>` with the desired batch size (e.g., 32, 64, 128, 256).
 
 ```
 
