@@ -137,28 +137,35 @@ Key findings:
 
 The baseline results provide insights into the trade-offs between model performance, communication efficiency, and scalability in federated learning setups.
 
-## Communication Metrics in baseline
+## Communication Metrics in Baseline
 
 **Average_RTT (s):**
    Average Round Trip Time in seconds, representing the average time for a complete client-server communication cycle.
+   Calculated as: `total_comm_time / num_clients`
 
 **Uplink_Data(MB):**
    The amount of data in megabytes sent from clients to the server in this round.
+   Calculated using: `calculate_model_size(client_model)` for each client
 
 **Downlink_Data(MB):**
    The amount of data in megabytes sent from the server to clients in this round.
+   Calculated using: `calculate_model_size(client_model)` for each client
 
 **Total_Data_Transferred(MB):**
-  The total amount of data transferred (both uplink and downlink) in megabytes for this round.
+   The total amount of data transferred (both uplink and downlink) in megabytes for this round.
+   Calculated as: `total_uplink_data + total_downlink_data`
 
 **Computation_Time(s):**
    The time spent on local computations by clients in seconds for this round.
+   Measured within the `client_update()` function and summed for all clients
 
 **Communication_Time(s):**
    The time spent on communication between clients and server in seconds for this round.
+   Calculated as the sum of downlink and uplink times for all clients
 
 **Round_Total_Time(s):**
    The total time taken to complete this round, including both computation and communication.
+   Measured using `time.time()` at the start and end of each round
      
 ## Getting Started (baseline experiments)
 
