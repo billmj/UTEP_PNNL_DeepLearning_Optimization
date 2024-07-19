@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project aims to analyze and optimize communication overhead in federated learning systems, specifically within the context of distributed deep learning using the UNSW-NB15 dataset for network intrusion detection. The focus is on implementing efficient client-server communication protocols and optimizing data transfer processes to improve overall system performance.
+This project aims to analyze and optimize communication overhead in federated learning systems, specifically within the context of distributed deep learning using the UNSW-NB15 dataset for network intrusion detection. The focus is on implementing efficient client-server communication and optimizing data transfer processes to improve overall system performance.
 
 ## Technical Plan
 
@@ -32,8 +32,8 @@ This project aims to analyze and optimize communication overhead in federated le
 - Run federated learning code on the UNSW dataset.
 
 **Collect Baseline Data:**
-- Measure and record communication overhead metrics such as latency, bandwidth usage, and total communication time.
-- Use logging and profiling tools for data collection.
+- Measure and record communication overhead metrics such as average Round Trip Time (RTT) in seconds,uplink and downlink data transfer in megabytes (MB), computation and communication time per round in seconds.
+- Track model performance metrics such as Accuracy per round as well as final accuracy with early stopping, F1-score, precision, recall, ROC AUC, and Matthews Correlation Coefficient
 
 ### 4. Profiling and Analysis
 
@@ -65,24 +65,39 @@ This project aims to analyze and optimize communication overhead in federated le
 **Develop Models:**
 - Develop performance models based on simulation results to predict the efficiency of different strategies.
 
-## Current Progress
+## Current Progress in baseline model
 
-- **Baseline Experiments:** Conducted with varying client numbers and batch sizes to measure initial performance.
-- **Initial Findings:**
-  - **System Performance:**
-    - Efficient handling of varying numbers of clients (10 to 100) with reasonable communication overhead.
-    - Consistent and manageable communication and computation times after the initial setup.
-  - **Model Performance:**
-    - Inconsistent accuracy ranging from 45% to 98%.
-    - Wide variation in AUC ROC scores (0.46 to 0.99).
-  - **Scalability vs. Performance:**
-    - Efficient scaling in system performance with increased client numbers, but no clear improvement in model accuracy or AUC ROC scores.
-  - **Learning Dynamics:**
-    - Lack of consistent improvement over rounds.
-    - Higher variability in accuracy with 10-client experiments compared to 50 and 100 clients.
-  - **Communication vs. Performance:**
-    - Good communication efficiency with reasonable data transfer sizes and communication times.
-    - Non-linear increase in communication overhead as client numbers grow, suggesting effective management of distributed computation.
+All baseline models were run using the Exclusive CPU Node on Perlmutter, equipped with AMD EPYC 7763 64-Core Processor (256 CPUs) and 503 GiB of memory, to ensure consistent performance.
+
+Conducted federated learning experiments on the UNSW-NB15 dataset for network intrusion detection, exploring various configurations:
+
+- Number of clients: 10, 50, 100
+- Batch sizes: 32, 64, 128, 256
+
+Key findings:
+
+1. Learning Curves:
+   - Smaller batch sizes (32, 64) converge faster and achieve higher accuracies.
+   - Fewer clients (10) generally yield better performance.
+   - Best configuration: 10 clients, batch size 32 (Accuracy: 0.986)
+   - Worst configuration: 100 clients, batch size 256 (Accuracy: 0.551)
+
+2. ROC AUC Performance:
+   - Best configuration: 10 clients, batch size 32 (ROC AUC: 0.9838)
+
+3. Computation vs. Communication Time:
+   - Computation time significantly outweighs communication time across all configurations.
+   - Larger batch sizes reduce computation time but have minimal impact on communication time.
+
+4. Efficiency (Accuracy Gain per MB):
+   - Configurations with fewer clients (10) show higher efficiency.
+   - Smaller batch sizes tend to be more efficient in terms of accuracy gain per data transferred.
+
+5. Scalability:
+   - Larger batch sizes (128, 256) scale better with increasing client numbers.
+   - Smaller batch sizes (32, 64) show poorer scalability as client numbers increase.
+
+The baseline results provide insights into the trade-offs between model performance, communication efficiency, and scalability in federated learning setups.
 
 ## Communication Metrics in baseline
 
