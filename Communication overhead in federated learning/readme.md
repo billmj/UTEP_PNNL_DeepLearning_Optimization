@@ -65,6 +65,42 @@ This project aims to analyze and optimize communication overhead in federated le
 **Develop Models:**
 - Develop performance models based on simulation results to predict the efficiency of different strategies.
 
+
+## Code Structure
+
+### Python Scripts:
+1. `federated_learning_main.py`: The main script to run federated learning experiments. It sets up the experiment, loads data, and executes the federated learning process.
+
+2. `utils.py`: Contains utility functions for data loading, preprocessing, and federated learning implementation. This includes functions for:
+   - Data loading and preprocessing
+   - Model definition
+   - Federated learning algorithms
+   - Metric calculations
+
+### Jupyter Notebooks:
+3. `insights_viz.ipynb`: Jupyter notebook for visualizing and analyzing the results of the federated learning experiments. It includes plots for:
+   - Learning curves
+   - Performance comparison heatmaps
+   - Communication overhead analysis
+   - Computation vs. Communication time comparisons
+   - Efficiency metrics
+
+4. `fed_learning_basic.ipynb`: This notebook contains the initial data preprocessing steps for the UNSW-NB15 dataset. It includes:
+   - Loading the dataset
+   - Separating features and target variables
+   - Identifying categorical columns
+   - Applying one-hot encoding to categorical columns and scaling to numerical columns
+   - Splitting the data into training and testing sets
+   - Converting data to numpy arrays for compatibility with deep learning frameworks
+
+This notebook serves as the starting point for the federated learning process, preparing the data for use in the main federated learning script.
+
+### Other Files:
+5. `requirements.txt`: Lists all the Python dependencies required to run the project.
+
+6. `README.md`: Provides an overview of the project, instructions for setup and running experiments, and summary of current progress.
+
+
 ## Current Progress in baseline model
 
 All baseline models were run using the Exclusive CPU Node on Perlmutter, equipped with AMD EPYC 7763 64-Core Processor (256 CPUs) and 503 GiB of memory, to ensure consistent performance.
