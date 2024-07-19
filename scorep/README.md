@@ -75,7 +75,7 @@ There was trouble finding libbfd and libunwind libraries during the initial conf
 ../configure --enable-shared --prefix=$HOME/scorep --with-libunwind=download --with-libbfd=download
 ```
 
-This allowed the configuration to be complete, but we still ran into more issues further down the line when running the make. To resolve these issues we needed to reconfigure our score-p and a couple of enviornment variables.
+This allowed the configuration to be completed, but we still ran into more issues further down the line when running the make. To resolve these issues we needed to reconfigure our score-p and a couple of enviornment variables.
 - Libraries should be installed in a vendor folder located in your prefix directory.
   - In our case the location was --> '$HOME/scorep/vendor/libunwind' and '$HOME/scorep/vendor/libbfd'
 - Modified environment variables LD_LIBRARY_PATH and LIBRARY_PATH by specifying the path to the 'lib' directory in both libunwind and libbfd.
