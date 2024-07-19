@@ -1,0 +1,296 @@
+(fx-env-gpu) smoore@nid200412:/pscratch/sd/s/smoore/examples/imagenet> python
+Python 3.11.7 | packaged by conda-forge | (main, Dec 23 2023, 14:43:09) [GCC 12.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> import torch.fx
+>>> import torchvision.models as models
+>>> rn18 = models.resnet18()
+>>> rn18.eval()
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): Linear(in_features=512, out_features=1000, bias=True)
+)
+>>> input = torch.randn(5, 3, 224, 224)
+>>> output = rn18(input)
+>>> output
+tensor([[ 1.5368, -1.5386,  1.8310,  ..., -2.6294,  1.3342, -2.8316],
+        [ 1.4759, -1.4876,  1.8195,  ..., -2.6236,  1.2835, -2.7630],
+        [ 1.4927, -1.4532,  1.8115,  ..., -2.4557,  1.3824, -2.7953],
+        [ 1.4863, -1.6005,  1.8885,  ..., -2.6299,  1.3365, -2.8571],
+        [ 1.4639, -1.5110,  1.8945,  ..., -2.5278,  1.2723, -2.8275]],
+       grad_fn=<AddmmBackward0>)
+>>> import statistics, tabulate, time
+>>> from typing import Any, Dict, List
+>>> from torch.fx import Interpreter
+>>> traced_rn18 = torch.fx.symbolic_trace(rn18)
+>>> print(traced_rn18.graph)
+graph():
+    %x : torch.Tensor [num_users=1] = placeholder[target=x]
+    %conv1 : [num_users=1] = call_module[target=conv1](args = (%x,), kwargs = {})
+    %bn1 : [num_users=1] = call_module[target=bn1](args = (%conv1,), kwargs = {})
+    %relu : [num_users=1] = call_module[target=relu](args = (%bn1,), kwargs = {})
+    %maxpool : [num_users=2] = call_module[target=maxpool](args = (%relu,), kwargs = {})
+    %layer1_0_conv1 : [num_users=1] = call_module[target=layer1.0.conv1](args = (%maxpool,), kwargs = {})
+    %layer1_0_bn1 : [num_users=1] = call_module[target=layer1.0.bn1](args = (%layer1_0_conv1,), kwargs = {})
+    %layer1_0_relu : [num_users=1] = call_module[target=layer1.0.relu](args = (%layer1_0_bn1,), kwargs = {})
+    %layer1_0_conv2 : [num_users=1] = call_module[target=layer1.0.conv2](args = (%layer1_0_relu,), kwargs = {})
+    %layer1_0_bn2 : [num_users=1] = call_module[target=layer1.0.bn2](args = (%layer1_0_conv2,), kwargs = {})
+    %add : [num_users=1] = call_function[target=operator.add](args = (%layer1_0_bn2, %maxpool), kwargs = {})
+    %layer1_0_relu_1 : [num_users=2] = call_module[target=layer1.0.relu](args = (%add,), kwargs = {})
+    %layer1_1_conv1 : [num_users=1] = call_module[target=layer1.1.conv1](args = (%layer1_0_relu_1,), kwargs = {})
+    %layer1_1_bn1 : [num_users=1] = call_module[target=layer1.1.bn1](args = (%layer1_1_conv1,), kwargs = {})
+    %layer1_1_relu : [num_users=1] = call_module[target=layer1.1.relu](args = (%layer1_1_bn1,), kwargs = {})
+    %layer1_1_conv2 : [num_users=1] = call_module[target=layer1.1.conv2](args = (%layer1_1_relu,), kwargs = {})
+    %layer1_1_bn2 : [num_users=1] = call_module[target=layer1.1.bn2](args = (%layer1_1_conv2,), kwargs = {})
+    %add_1 : [num_users=1] = call_function[target=operator.add](args = (%layer1_1_bn2, %layer1_0_relu_1), kwargs = {})
+    %layer1_1_relu_1 : [num_users=2] = call_module[target=layer1.1.relu](args = (%add_1,), kwargs = {})
+    %layer2_0_conv1 : [num_users=1] = call_module[target=layer2.0.conv1](args = (%layer1_1_relu_1,), kwargs = {})
+    %layer2_0_bn1 : [num_users=1] = call_module[target=layer2.0.bn1](args = (%layer2_0_conv1,), kwargs = {})
+    %layer2_0_relu : [num_users=1] = call_module[target=layer2.0.relu](args = (%layer2_0_bn1,), kwargs = {})
+    %layer2_0_conv2 : [num_users=1] = call_module[target=layer2.0.conv2](args = (%layer2_0_relu,), kwargs = {})
+    %layer2_0_bn2 : [num_users=1] = call_module[target=layer2.0.bn2](args = (%layer2_0_conv2,), kwargs = {})
+    %layer2_0_downsample_0 : [num_users=1] = call_module[target=layer2.0.downsample.0](args = (%layer1_1_relu_1,), kwargs = {})
+    %layer2_0_downsample_1 : [num_users=1] = call_module[target=layer2.0.downsample.1](args = (%layer2_0_downsample_0,), kwargs = {})
+    %add_2 : [num_users=1] = call_function[target=operator.add](args = (%layer2_0_bn2, %layer2_0_downsample_1), kwargs = {})
+    %layer2_0_relu_1 : [num_users=2] = call_module[target=layer2.0.relu](args = (%add_2,), kwargs = {})
+    %layer2_1_conv1 : [num_users=1] = call_module[target=layer2.1.conv1](args = (%layer2_0_relu_1,), kwargs = {})
+    %layer2_1_bn1 : [num_users=1] = call_module[target=layer2.1.bn1](args = (%layer2_1_conv1,), kwargs = {})
+    %layer2_1_relu : [num_users=1] = call_module[target=layer2.1.relu](args = (%layer2_1_bn1,), kwargs = {})
+    %layer2_1_conv2 : [num_users=1] = call_module[target=layer2.1.conv2](args = (%layer2_1_relu,), kwargs = {})
+    %layer2_1_bn2 : [num_users=1] = call_module[target=layer2.1.bn2](args = (%layer2_1_conv2,), kwargs = {})
+    %add_3 : [num_users=1] = call_function[target=operator.add](args = (%layer2_1_bn2, %layer2_0_relu_1), kwargs = {})
+    %layer2_1_relu_1 : [num_users=2] = call_module[target=layer2.1.relu](args = (%add_3,), kwargs = {})
+    %layer3_0_conv1 : [num_users=1] = call_module[target=layer3.0.conv1](args = (%layer2_1_relu_1,), kwargs = {})
+    %layer3_0_bn1 : [num_users=1] = call_module[target=layer3.0.bn1](args = (%layer3_0_conv1,), kwargs = {})
+    %layer3_0_relu : [num_users=1] = call_module[target=layer3.0.relu](args = (%layer3_0_bn1,), kwargs = {})
+    %layer3_0_conv2 : [num_users=1] = call_module[target=layer3.0.conv2](args = (%layer3_0_relu,), kwargs = {})
+    %layer3_0_bn2 : [num_users=1] = call_module[target=layer3.0.bn2](args = (%layer3_0_conv2,), kwargs = {})
+    %layer3_0_downsample_0 : [num_users=1] = call_module[target=layer3.0.downsample.0](args = (%layer2_1_relu_1,), kwargs = {})
+    %layer3_0_downsample_1 : [num_users=1] = call_module[target=layer3.0.downsample.1](args = (%layer3_0_downsample_0,), kwargs = {})
+    %add_4 : [num_users=1] = call_function[target=operator.add](args = (%layer3_0_bn2, %layer3_0_downsample_1), kwargs = {})
+    %layer3_0_relu_1 : [num_users=2] = call_module[target=layer3.0.relu](args = (%add_4,), kwargs = {})
+    %layer3_1_conv1 : [num_users=1] = call_module[target=layer3.1.conv1](args = (%layer3_0_relu_1,), kwargs = {})
+    %layer3_1_bn1 : [num_users=1] = call_module[target=layer3.1.bn1](args = (%layer3_1_conv1,), kwargs = {})
+    %layer3_1_relu : [num_users=1] = call_module[target=layer3.1.relu](args = (%layer3_1_bn1,), kwargs = {})
+    %layer3_1_conv2 : [num_users=1] = call_module[target=layer3.1.conv2](args = (%layer3_1_relu,), kwargs = {})
+    %layer3_1_bn2 : [num_users=1] = call_module[target=layer3.1.bn2](args = (%layer3_1_conv2,), kwargs = {})
+    %add_5 : [num_users=1] = call_function[target=operator.add](args = (%layer3_1_bn2, %layer3_0_relu_1), kwargs = {})
+    %layer3_1_relu_1 : [num_users=2] = call_module[target=layer3.1.relu](args = (%add_5,), kwargs = {})
+    %layer4_0_conv1 : [num_users=1] = call_module[target=layer4.0.conv1](args = (%layer3_1_relu_1,), kwargs = {})
+    %layer4_0_bn1 : [num_users=1] = call_module[target=layer4.0.bn1](args = (%layer4_0_conv1,), kwargs = {})
+    %layer4_0_relu : [num_users=1] = call_module[target=layer4.0.relu](args = (%layer4_0_bn1,), kwargs = {})
+    %layer4_0_conv2 : [num_users=1] = call_module[target=layer4.0.conv2](args = (%layer4_0_relu,), kwargs = {})
+    %layer4_0_bn2 : [num_users=1] = call_module[target=layer4.0.bn2](args = (%layer4_0_conv2,), kwargs = {})
+    %layer4_0_downsample_0 : [num_users=1] = call_module[target=layer4.0.downsample.0](args = (%layer3_1_relu_1,), kwargs = {})
+    %layer4_0_downsample_1 : [num_users=1] = call_module[target=layer4.0.downsample.1](args = (%layer4_0_downsample_0,), kwargs = {})
+    %add_6 : [num_users=1] = call_function[target=operator.add](args = (%layer4_0_bn2, %layer4_0_downsample_1), kwargs = {})
+    %layer4_0_relu_1 : [num_users=2] = call_module[target=layer4.0.relu](args = (%add_6,), kwargs = {})
+    %layer4_1_conv1 : [num_users=1] = call_module[target=layer4.1.conv1](args = (%layer4_0_relu_1,), kwargs = {})
+    %layer4_1_bn1 : [num_users=1] = call_module[target=layer4.1.bn1](args = (%layer4_1_conv1,), kwargs = {})
+    %layer4_1_relu : [num_users=1] = call_module[target=layer4.1.relu](args = (%layer4_1_bn1,), kwargs = {})
+    %layer4_1_conv2 : [num_users=1] = call_module[target=layer4.1.conv2](args = (%layer4_1_relu,), kwargs = {})
+    %layer4_1_bn2 : [num_users=1] = call_module[target=layer4.1.bn2](args = (%layer4_1_conv2,), kwargs = {})
+    %add_7 : [num_users=1] = call_function[target=operator.add](args = (%layer4_1_bn2, %layer4_0_relu_1), kwargs = {})
+    %layer4_1_relu_1 : [num_users=1] = call_module[target=layer4.1.relu](args = (%add_7,), kwargs = {})
+    %avgpool : [num_users=1] = call_module[target=avgpool](args = (%layer4_1_relu_1,), kwargs = {})
+    %flatten : [num_users=1] = call_function[target=torch.flatten](args = (%avgpool, 1), kwargs = {})
+    %fc : [num_users=1] = call_module[target=fc](args = (%flatten,), kwargs = {})
+    return fc
+>>> class ProfilingInterpreter(Interpreter):
+...     def __init__(self, mod : torch.nn.Module):
+...         gm = torch.fx.symbolic_trace(mod)
+...         super().__init__(gm)
+...         self.total_runtime_sec : List[float] = []
+...         self.runtimes_sec : Dict[torch.fx.Node, List[float]] = {}
+...     def run(self, *args) -> Any:
+...         t_start = time.time()
+...         return_val = super().run(*args)
+...         t_end = time.time()
+...         self.total_runtime_sec.append(t_end - t_start)
+...         return return_val
+...     def run_node(self, n : torch.fx.Node) -> Any:
+...         t_start = time.time()
+...         return_val = super().run_node(n)
+...         t_end = time.time()
+...         self.runtimes_sec.setdefault(n, [])
+...         self.runtimes_sec[n].append(t_end - t_start)
+...         return return_val
+...     def summary(self, should_sort : bool = False) -> str:
+...         node_summaries : List[List[Any]] = []
+...         mean_total_runtime = statistics.mean(self.total_runtime_sec)
+...         for node, runtimes in self.runtimes_sec.items():
+...             mean_runtime = statistics.mean(runtimes)
+...             pct_total = mean_runtime / mean_total_runtime * 100
+...             node_summaries.append(
+...                 [node.op, str(node), mean_runtime, pct_total])
+...         if should_sort:
+...             node_summaries.sort(key=lambda s: s[2], reverse=True)
+...         headers : List[str] = [
+...             'Op type', 'Op', 'Average runtime (s)', 'Pct total runtime'
+...         ]
+...         return tabulate.tabulate(node_summaries, headers=headers)
+... 
+>>> interp = ProfilingInterpreter(rn18)
+>>> interp.run(input)
+tensor([[ 1.5368, -1.5386,  1.8310,  ..., -2.6294,  1.3342, -2.8316],
+        [ 1.4759, -1.4876,  1.8195,  ..., -2.6236,  1.2835, -2.7630],
+        [ 1.4927, -1.4532,  1.8115,  ..., -2.4557,  1.3824, -2.7953],
+        [ 1.4863, -1.6005,  1.8885,  ..., -2.6299,  1.3365, -2.8571],
+        [ 1.4639, -1.5110,  1.8945,  ..., -2.5278,  1.2723, -2.8275]],
+       grad_fn=<AddmmBackward0>)
+>>> print(interp.summary(True))
+Op type        Op                       Average runtime (s)    Pct total runtime
+-------------  ---------------------  ---------------------  -------------------
+call_module    conv1                            0.00348139             9.86508
+call_module    layer1_1_conv1                   0.00247836             7.02284
+call_module    layer1_0_conv1                   0.00240088             6.80327
+call_module    layer4_0_conv2                   0.00190854             5.40816
+call_module    layer1_0_conv2                   0.00184226             5.22035
+call_module    layer2_0_downsample_0            0.00165486             4.68933
+call_module    layer4_1_conv2                   0.00146198             4.14277
+call_module    layer4_1_conv1                   0.00143409             4.06372
+call_module    layer2_0_conv1                   0.00139809             3.96171
+call_module    layer1_1_conv2                   0.00132942             3.76713
+call_module    layer2_1_conv2                   0.00111318             3.15437
+call_module    layer2_0_conv2                   0.00104809             2.96993
+call_module    bn1                              0.00103307             2.92737
+call_module    layer3_0_conv2                   0.000984669            2.79022
+call_module    layer4_0_conv1                   0.00095439             2.70442
+call_module    layer2_1_conv1                   0.000917196            2.59903
+call_module    layer3_0_conv1                   0.000901222            2.55376
+call_module    layer3_1_conv1                   0.000896454            2.54025
+call_module    maxpool                          0.00087285             2.47336
+call_module    layer3_1_conv2                   0.000853539            2.41864
+call_module    layer3_0_downsample_0            0.000591755            1.67683
+call_function  add                              0.000416517            1.18027
+call_module    layer4_0_downsample_0            0.000406027            1.15054
+call_function  add_1                            0.000393391            1.11474
+call_module    layer1_0_bn1                     0.000258923            0.7337
+call_module    fc                               0.000223398            0.633035
+call_module    layer1_1_bn1                     0.000214815            0.608714
+call_module    layer1_0_bn2                     0.000208616            0.591148
+call_function  add_3                            0.0001688              0.478323
+call_module    layer2_1_bn2                     0.000160217            0.454002
+call_function  add_2                            0.000158548            0.449273
+call_module    layer2_0_downsample_1            0.00013566             0.384415
+call_module    layer1_0_relu                    0.000128984            0.365499
+call_module    layer1_1_relu                    0.000122309            0.346582
+call_module    avgpool                          0.000115633            0.327665
+call_module    layer1_1_bn2                     0.000108004            0.306046
+call_function  add_5                            9.77516e-05            0.276995
+call_module    layer2_0_relu                    9.39369e-05            0.266186
+call_function  add_4                            9.13143e-05            0.258754
+call_module    layer3_1_bn1                     9.03606e-05            0.256052
+call_module    relu                             8.89301e-05            0.251998
+call_module    layer3_1_bn2                     8.79765e-05            0.249296
+call_module    layer2_0_bn1                     8.70228e-05            0.246593
+call_module    layer3_0_bn1                     8.2016e-05             0.232406
+call_module    layer3_0_bn2                     8.17776e-05            0.23173
+call_module    layer3_0_downsample_1            7.89165e-05            0.223623
+call_module    layer2_1_relu                    7.86781e-05            0.222947
+call_module    layer2_0_bn2                     7.7486e-05             0.219569
+call_module    layer2_1_bn1                     7.70092e-05            0.218218
+call_module    layer4_1_bn1                     7.55787e-05            0.214165
+call_module    layer4_0_downsample_1            7.36713e-05            0.20876
+call_module    layer3_0_relu                    7.20024e-05            0.204031
+call_module    layer4_0_bn2                     7.08103e-05            0.200653
+call_module    layer4_1_bn2                     6.96182e-05            0.197275
+call_module    layer4_0_bn1                     6.65188e-05            0.188492
+placeholder    x                                6.29425e-05            0.178358
+call_module    layer3_1_relu                    5.67436e-05            0.160792
+call_module    layer4_1_relu                    5.55515e-05            0.157414
+call_module    layer4_0_relu                    5.48363e-05            0.155388
+call_function  add_7                            5.45979e-05            0.154712
+call_function  add_6                            5.34058e-05            0.151334
+call_module    layer1_0_relu_1                  4.72069e-05            0.133768
+call_module    layer1_1_relu_1                  4.45843e-05            0.126337
+call_module    layer4_0_relu_1                  4.14848e-05            0.117554
+call_module    layer2_0_relu_1                  4.12464e-05            0.116878
+call_module    layer3_1_relu_1                  4.07696e-05            0.115527
+call_module    layer3_0_relu_1                  4.02927e-05            0.114176
+call_module    layer2_1_relu_1                  4.00543e-05            0.1135
+call_module    layer4_1_relu_1                  3.93391e-05            0.111474
+call_function  flatten                          2.36034e-05            0.0668842
+output         output                           1.0252e-05             0.0290507
+>>> 
+
