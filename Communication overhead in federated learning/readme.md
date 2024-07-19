@@ -22,7 +22,7 @@ This project aims to analyze and optimize communication overhead in federated le
    If you are using Conda, you can create a new environment and install the dependencies from the `requirements.txt` file by running the following commands:
 
    ```shell
-   conda create --name your_env_name python=3.8
+   conda create --name your_env_name python=3.9
    conda activate your_env_name
    pip install -r requirements.txt
 
@@ -87,34 +87,33 @@ This project aims to analyze and optimize communication overhead in federated le
 ## Communication Metrics in baseline
 
 **Average_RTT (s):**
-   This is a direct measure of the latency in communication, reflecting the round-trip time for data to travel between the server and clients.
+   Average Round Trip Time in seconds, representing the average time for a complete client-server communication cycle.
 
-**Total_Data_Transferred (MB):**
-   This reflects the volume of data exchanged, which contributes to the communication load and can affect network bandwidth.
+**Uplink_Data(MB):**
+   The amount of data in megabytes sent from clients to the server in this round.
 
-**Comm_Frequency:**
-   This indicates how often communication events occur, which impacts the frequency of overhead incurred.
+**Downlink_Data(MB):**
+   The amount of data in megabytes sent from the server to clients in this round.
 
-**Total_Communication_Time (s):**
-   This measures the total time spent on communication activities between the server and clients.
+**Total_Data_Transferred(MB):**
+  The total amount of data transferred (both uplink and downlink) in megabytes for this round.
 
-**Client_Compute_Time (s) and Server_Aggregate_Time (s):**
-   While these primarily measure computation time, they are important for understanding the overall process and identifying if communication delays are affecting computation phases.
+**Computation_Time(s):**
+   The time spent on local computations by clients in seconds for this round.
 
-**Round_Total_Time (s):**
-   This includes all components (communication, computation, and aggregation) and helps in assessing the overall efficiency of each round. By comparing it with individual metrics, you can isolate the communication overhead.
+**Communication_Time(s):**
+   The time spent on communication between clients and server in seconds for this round.
 
-
+**Round_Total_Time(s):**
+   The total time taken to complete this round, including both computation and communication.
+     
 ## Getting Started (baseline experiments)
 
-### Step 1: Ensure Datasets are Prepared
-```sh
-python create_dataset_for_clients.py -n 50  # Number of clients in this case for 50 clients
-```
 
-### Step 2: To run baseline experiments, specify the number of clients, number of rounds, and batch size as arguments:
+### Step 1: To run baseline experiments, specify the number of clients, number of rounds, and batch size as arguments:
 ```sh
-./run.sh 50 20 32  # Number of clients 50, rounds -20 , batch size - 32
+python federated_learning_main.py <num_clients> <batch_size> #Replace `<num_clients>` with the number of clients (e.g., 10, 50, 100) and `<batch_size>` with the desired batch size (e.g., 32, 64, 128, 256).
+
 ```
 
 Pressing Ctrl+C will terminate all processes
