@@ -178,7 +178,58 @@ The baseline results provide insights into the trade-offs between model performa
 
 Pressing Ctrl+C will terminate all processes
 
+### Running Score-P for Baseline Experiments
+Ensure Score-P and CubeGUI are installed and built:
 
+    Navigate to your CubeGUI directory and build if not done already:
+
+```sh
+ cd ~/cubegui-4.8.2
+./configure --prefix=$HOME/cubegui
+make
+make install
+
+```
+## Export environment variables for Score-P:
+
+```sh
+export SCOREP_ENABLE_PROFILING=true
+export SCOREP_ENABLE_TRACING=false
+
+```
+## Run the profiling script with Score-P:
+The profiling script run_federated_learning_main_with_profiling.py is already provided in the repository.
+
+## Run the script for each baseline experiment configuration:
+```sh
+python run_federated_learning_main_with_profiling.py <num_clients> <batch_size> #Replace <num_clients> with the number of clients (e.g., 10, 50, 100) and <batch_size> with the desired batch size (e.g., 32, 64, 128, 256).
+
+```
+
+
+### Using CubeGUI to Analyze Profiling Data
+## Opening CubeGUI
+# Locate the CubeGUI executable:
+# Run the CubeGUI executable:
+```sh
+/global/homes/b/billmj/fl_unsw/cubegui-4.8.2/_build/build-frontend/.libs/cube
+
+```
+
+## Load profiling data:
+# In the CubeGUI file dialog, navigate to the directory containing the profiling data:
+```sh
+/global/homes/b/billmj/fl_unsw
+
+```
+#Select the desired profiling directory and open the profile.cubex file.
+
+#To open profiling data for a specific configuration:
+```sh
+/global/homes/b/billmj/fl_unsw/cubegui-4.8.2/_build/build-frontend/.libs/cube /global/homes/b/billmj/fl_unsw/<profiling_directory>/profile.cubex
+
+```
+#Replace <profiling_directory> with the appropriate directory name, such as scorep_20240720_231846_clients10_batch32.
 
 
 ## Next Steps/Plans
