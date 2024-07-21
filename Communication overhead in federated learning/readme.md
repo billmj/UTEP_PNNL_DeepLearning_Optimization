@@ -208,15 +208,15 @@ python run_federated_learning_main_with_profiling.py <num_clients> <batch_size> 
 
 
 ### Using CubeGUI to Analyze Profiling Data
-## Opening CubeGUI
-# Locate the CubeGUI executable:
-# Run the CubeGUI executable:
+Opening CubeGUI
+ Locate the CubeGUI executable:
+ Run the CubeGUI executable:
 ```sh
 /global/homes/b/billmj/fl_unsw/cubegui-4.8.2/_build/build-frontend/.libs/cube
 
 ```
 
-## Load profiling data:
+ Load profiling data:
  In the CubeGUI file dialog, navigate to the directory containing the profiling data:
 ```sh
 /global/homes/b/billmj/fl_unsw
