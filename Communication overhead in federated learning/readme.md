@@ -190,7 +190,7 @@ make
 make install
 
 ```
-## Export environment variables for Score-P:
+Export environment variables for Score-P:
 
 ```sh
 export SCOREP_ENABLE_PROFILING=true
