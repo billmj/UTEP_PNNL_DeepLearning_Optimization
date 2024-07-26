@@ -45,6 +45,10 @@ and Machine Learning Measurements. In High Performance Computing: 37th Internati
 Germany, May 29 – June 2, 2022, Proceedings. Springer-Verlag, Berlin, Heidelberg, 275–292. https://doi.org/10.1007/978-3-031-07312-0_14
 Companion material: https://zenodo.org/records/6349605
 
+12. Philippe Tillet, H. T. Kung, and David Cox. 2019. Triton: an intermediate language and compiler for tiled neural network computations. 
+In Proceedings of the 3rd ACM SIGPLAN International Workshop on Machine Learning and Programming Languages (MAPL 2019). 
+Association for Computing Machinery, New York, NY, USA, 10–19. https://doi.org/10.1145/3315508.3329973
+
 
 
 
