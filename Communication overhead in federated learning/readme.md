@@ -197,16 +197,7 @@ export SCOREP_ENABLE_PROFILING=true
 export SCOREP_ENABLE_TRACING=false
 
 ```
- Run the profiling script with Score-P:
-The profiling script run_federated_learning_main_with_profiling.py is already provided in the repository.
-
-Run the script for each baseline experiment configuration:
-```sh
-python run_federated_learning_main_with_profiling.py <num_clients> <batch_size> #Replace <num_clients> with the number of clients (e.g., 10, 50, 100) and <batch_size> with the desired batch size (e.g., 32, 64, 128, 256).
-
-```
-
-
+ 
 ### Using CubeGUI to Analyze Profiling Data
 Opening CubeGUI
  Locate the CubeGUI executable:
