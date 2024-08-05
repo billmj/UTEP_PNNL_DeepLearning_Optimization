@@ -105,7 +105,7 @@ This notebook serves as the starting point for the federated learning process, p
 ## Scalability in baseline approach
 ![Scalability Analysis](Figures/5.Scalability.png)
 
-All baseline models were run using the Exclusive CPU Node on Perlmutter, equipped with AMD EPYC 7763 64-Core Processor (256 CPUs) and 503 GiB of memory, to ensure consistent performance.
+All baseline models were ran using the Exclusive CPU Node on Perlmutter, equipped with AMD EPYC 7763 64-Core Processor (256 CPUs) and 503 GiB of memory, to ensure consistent performance.
 
 Conducted federated learning experiments on the UNSW-NB15 dataset for network intrusion detection, exploring various configurations:
 
