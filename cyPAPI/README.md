@@ -1,8 +1,12 @@
 The cyPAPI repository is here: https://github.com/icl-utk-edu/cyPAPI 
+
+## Note
+The following steps are to install both cyPAPI and PAPI at your $HOME directory in perlmutter.
+
 ## Prerequisites
 
-Ensure you have the following modules installed in your login node:
-- module load papi
+Ensure you have the following modules uninstalled/installed in your login node:
+- module unload perftools-base
 - module load python
 
 Make sure you are on a compute node and place the account to the project name:
@@ -11,16 +15,40 @@ salloc --nodes 1 --qos interactive --time 01:00:00 --constraint gpu --gpus 1 --a
 ```
 ## Installation
 
-Clone the repo into your home folder (optionally download and place zip folder to home directory using unzip bash command)
+Clone the papi and cypapi repo into your home folder (optionally download and place zip folder to home directory using unzip bash command)
 
 ```bash
 git clone https://github.com/icl-utk-edu/cyPAPI.git 
+git clone https://github.com/icl-utk-edu/papi.git 
 ```
 ## Environment Setup
 
-Before installing `cyPAPI`, set the required environment variables:
+Before installing `cyPAPI`, install `papi` and set the required environment variables:
+```bash
+export PAPI_PATH=/global/homes/<first initial of your username>/<perlmutter-username>
+export PAPI_PATH=$CRAY_PAPI_PREFIX
+export PAPI_CUDA_ROOT=$CUDA_HOME
+export CC=cc
+export CXX=CC
+export LIB="-lpthread -ldl"
+export LIBS=$LIB
+```
+If you are using the papi module and perftools-base moudle - use:
+
 ```bash
 export PAPI_PATH=$CRAY_PAPI_PREFIX
+```
+
+Then do the following commands under `papi/src`
+```bash
+./configure --prefix=$COMMON --with-components="cuda"
+make install
+```
+
+Before installing `cyPAPI`, set the required environment variables:
+```bash
+export PAPI_PATH=/global/homes/<first initial of your username>/<perlmutter-username>
+export PAPI_DIR=/global/homes/<first initial of your username>/<perlmutter-username>
 export PAPI_CUDA_ROOT=$CUDA_HOME
 ```
 Optionally - you can also place:
@@ -74,7 +102,7 @@ To test if everything is working:
     ```bash
     cd cyPAPI/cypapi/cytest
     ```
-
+Skip this step if you are using NOT using the papi module under perlmutter
 2. Modify `torch_cuda.py`:
     - Set `unit = "cuda_7011"`
     - Change instances using `unit` to `"cuda"`:
@@ -83,10 +111,14 @@ To test if everything is working:
     matrix_B = torch.rand(m_rows, n_cols, device="cuda")
     ```
 
-3. Run the test file:
+3. Run the test files:
     ```bash
     ./torch_cuda.py
+    ./realtime.py
     ```
+
+## Reason of installing papi rather than using the papi module on Perlmutter
+We found that perftools-base causes an overhead issue when testing Treece code testing hardware counts making concerns for potential errors in collecting data.  Using the papi github repo helped show correct results.
 
 ## Troubleshooting
 
@@ -96,6 +128,9 @@ If encountering an error such as Exception: PAPI Error -14: PAPI_start failed , 
 ```python 
 python3 -m pdb torch_cuda.py
 ```
+### Papi installation troubleshooting
+If papi does not generate papi_avail under bin, try steps again and double check PAPI_PATH, PAPI_DIR enviromental variables.  I found that placing quotes do not set up paths right to your papi installation.  Or  `make clean` and retry installation steps.  Keep in mind I found that enviormenetal varaibels DO NOT save after loging out perlmutter session nor being recognized under a .bashrc file.  If there is a workaround saving these variables rather than retyping again, I would be happy to know!
+
 To debug the file line by line. Refer to the documentation how to use pdb https://docs.python.org/3/library/pdb.html 
 
 ## License
