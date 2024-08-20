@@ -127,6 +127,10 @@ If encountering an error such as Exception: PAPI Error -14: PAPI_start failed , 
 ```python 
 python3 -m pdb torch_cuda.py
 ```
+
+##PyTorch
+Make sure Pytorch is installed under module load python in perlmutter.  If missing functions or modules exist, try installing pytorch with pip in your python environment
+
 ### Papi installation troubleshooting
 If papi does not generate papi_avail under bin, try steps again and double check PAPI_PATH, PAPI_DIR enviromental variables.  I found that placing quotes do not set up paths right to your papi installation.  Or  `make clean` and retry installation steps.  Keep in mind I found that enviormenetal varaibels DO NOT save after loging out perlmutter session nor being recognized under a .bashrc file.  If there is a workaround saving these variables rather than retyping again, I would be happy to know!
 
