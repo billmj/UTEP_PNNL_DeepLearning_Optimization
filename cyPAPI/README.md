@@ -23,7 +23,7 @@ git clone https://github.com/icl-utk-edu/papi.git
 ```
 ## Environment Setup
 
-Before installing `cyPAPI`, install `papi` and set the required environment variables:
+Before installing `cyPAPI`, install `papi` and set the required environment variables (note you only need to set these varibles once for installing the software): 
 ```bash
 export PAPI_PATH=/global/homes/<first initial of your username>/<perlmutter-username>
 export PAPI_CUDA_ROOT=$CUDA_HOME
@@ -117,7 +117,7 @@ Skip this step if you are using NOT using the papi module under perlmutter
     ```
 
 ## Reason of installing papi rather than using the papi module on Perlmutter
-We found that perftools-base causes an overhead issue when testing Treece code testing hardware counts making concerns for potential errors in collecting data.  Using the papi github repo helped show correct results.
+We found that perftools-base causes an overhead issue when testing Treece code testing hardware counts making concerns for potential errors in collecting data.  Using the papi github repo helped show correct results.  In addition the reset() function to reset hardware counts was not correctly outputting the hardware counts for fmaa.
 
 ## Troubleshooting
 
