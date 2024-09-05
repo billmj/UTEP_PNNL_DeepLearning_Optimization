@@ -223,10 +223,89 @@ To open profiling data for a specific configuration:
 Replace <profiling_directory> with the appropriate directory name, such as scorep_20240720_231846_clients10_batch32.
 
 
-## Next Steps/Plans
 
+### Distributed Data Parallel Federated Learning
+
+We implement a Distributed Data Parallel (DDP) approach for Federated Learning using PyTorch on the UNSW-NB15 dataset for network intrusion detection.
+
+## Features
+
+- Distributed Data Parallel (DDP) implementation
+- Dynamic learning rate adjustment
+- Multi-GPU support
+- Federated Averaging (FedAvg) algorithm
+- Performance visualization
+
+## Dependencies
+
+- Python 3.9+
+- CUDA 12.2 (for GPU support)
+- MPI Libraries (for inter-node communication)
+
+### Python Packages
+
+- torch
+- torchvision
+- numpy
+- scipy
+- pandas
+- matplotlib
+- mpi4py
+
+## Usage
+
+To run distributed data parallel experiments, use the following command:
+
+```sh
+python federated_learning_ddp.py <num_clients> <batch_size>
+```
+
+Replace `<num_clients>` with the number of clients (e.g., 10, 50, 100) and `<batch_size>` with the desired batch size (e.g., 32, 64, 128, 256).
+
+## Technical Details
+
+### Learning Rate Adjustment
+
+The learning rate is dynamically adjusted based on the number of clients using the square root scaling rule:
+
+```python
+adjusted_lr = initial_lr * sqrt(num_clients)
+```
+
+Where `initial_lr` is set to 0.001.
+
+### Model Architecture
+
+We start with a simple neural network with the following structure:
+
+- Input layer
+- Hidden layer (16 units) with ReLU activation and dropout (0.3)
+- Hidden layer (8 units) with ReLU activation and dropout (0.3)
+- Output layer (1 unit) with Sigmoid activation
+
+### Federated Learning Process
+
+1. The data is split among `num_clients` clients.
+2. Each client performs local training for a specified number of epochs.
+3. The server aggregates the model updates.
+4. The process repeats for a set number of rounds.
+
+## Results
+
+After running the experiment, you can find the following in the `experiments_ddp` directory:
+
+- Final model checkpoints
+- Performance metrics (accuracy, F1-score, etc.)
+- Learning curve plots
+
+
+
+
+
+
+
+## Next Steps/Plans
 - Perform detailed profiling to identify bottlenecks in the current system.
-- Start GPU optimizations to accelerate computations and further reduce communication overhead.
 
 ## Acknowledgments
 
