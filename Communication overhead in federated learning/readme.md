@@ -274,22 +274,6 @@ adjusted_lr = initial_lr * sqrt(num_clients)
 
 Where `initial_lr` is set to 0.001.
 
-### Model Architecture
-
-We start with a simple neural network with the following structure:
-
-- Input layer
-- Hidden layer (16 units) with ReLU activation and dropout (0.3)
-- Hidden layer (8 units) with ReLU activation and dropout (0.3)
-- Output layer (1 unit) with Sigmoid activation
-
-### Federated Learning Process
-
-1. The data is split among `num_clients` clients.
-2. Each client performs local training for a specified number of epochs.
-3. The server aggregates the model updates.
-4. The process repeats for a set number of rounds.
-
 ## Results
 
 After running the experiment, you can find the following in the `experiments_ddp` directory:
@@ -297,6 +281,64 @@ After running the experiment, you can find the following in the `experiments_ddp
 - Final model checkpoints
 - Performance metrics (accuracy, F1-score, etc.)
 - Learning curve plots
+
+## Running Multi-Configuration DDP Federated Learning Experiments
+
+To run a series of experiments with different client numbers and batch sizes, we use a SLURM job script. This script automates the process of running multiple configurations sequentially.
+
+### SLURM Job Script
+
+The SLURM job script `multi_ddp_fl_experiment.sh` is set up to run experiments with various combinations of client numbers and batch sizes. Here's how to use it:
+
+1. Ensure the script `multi_ddp_fl_experiment.sh` is in your project directory.
+
+2. Make the script executable:
+   ```bash
+   chmod +x multi_ddp_fl_experiment.sh
+   ```
+
+3. Submit the job to the SLURM scheduler:
+   ```bash
+   sbatch multi_ddp_fl_experiment.sh
+   ```
+
+This script will:
+- Run experiments for 10, 50, and 100 clients
+- Use batch sizes of 32, 64, 128, 256, 512, 1024, and 2048 #we started with these configurations and they can always be changed.
+- Utilize 4 GPUs on a single node
+- Run for a maximum of 3 hours     
+
+### Key SLURM Parameters
+
+- `-N 1`: Use 1 node
+- `-C gpu`: Request GPU nodes
+- `-G 4`: Request 4 GPUs
+- `-q regular`: Use the regular quality of service queue
+- `-t 03:00:00`: Set a time limit of 3 hours
+
+### Monitoring the Job
+
+- Check the status of your job:
+  ```bash
+  squeue -u your_username
+  ```
+
+- Once completed, view the output:
+  ```bash
+  cat slurm-<JobID>.out
+  ```
+
+### Results
+
+The script will create separate directories for each configuration under `experiments_ddp/`. Each directory will contain:
+- Checkpoint files
+- A CSV file with final metrics (`final_metrics_ddp.csv`)
+
+The total runtime for all experiments in our case was approximately 2 hours and 54 minutes.
+
+### Note
+
+Adjust the `clients` and `batch_sizes` arrays in the script if you want to test different configurations.
 
 
 
