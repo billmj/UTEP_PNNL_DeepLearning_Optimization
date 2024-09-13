@@ -26,6 +26,7 @@ git clone https://github.com/icl-utk-edu/papi.git
 Before installing `cyPAPI`, install `papi` and set the required environment variables (note you only need to set these varibles once for installing the software): 
 ```bash
 export PAPI_PATH=/global/homes/<first initial of your username>/<perlmutter-username>
+export PAPI_DIR=/global/homes/<first initial of your username>/<perlmutter-username>
 export PAPI_CUDA_ROOT=$CUDA_HOME
 export CC=cc
 export CXX=CC
