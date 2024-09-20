@@ -1,0 +1,175 @@
+
+NOTICE: Existing SQLite export found: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite
+        It is assumed file was previously exported from: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.nsys-rep
+        Consider using --force-export=true if needed.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\nvtx_sum.py]... 
+
+ ** NVTX Range Summary (nvtx_sum):
+
+ Time (%)  Total Time (ns)  Instances    Avg (ns)      Med (ns)     Min (ns)    Max (ns)   StdDev (ns)   Style              Range           
+ --------  ---------------  ---------  ------------  ------------  ----------  ----------  -----------  -------  ---------------------------
+     69.8      16865447490          4  4216361872.5  4209645215.5  4194807797  4251349262   26519204.9  PushPop  NCCL:ncclGroupEnd          
+     15.9       3854523943     156000       24708.5       25219.0       18315     9749658      27732.0  PushPop  NCCL:ncclAllReduce         
+     13.9       3369863774          4   842465943.5   925541269.5   555413476   963367759  193533697.6  PushPop  NCCL:ncclCommAbort         
+      0.3         63398781          4    15849695.3    16546843.0     5721741    24583354    8001755.1  PushPop  NCCL:ncclCommInitRankConfig
+      0.0          8529500         16      533093.8       37167.0       20139     4510970    1177018.6  PushPop  NCCL:ncclBroadcast         
+      0.0          3611763          4      902940.8      773650.5      746714     1317748     277553.3  PushPop  NCCL:ncclAllGather         
+      0.0          2455236          4      613809.0      575307.0         491     1304131     537133.1  PushPop  NCCL:ncclGroupStart        
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\osrt_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain OS Runtime trace data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\cuda_api_sum.py]... 
+
+ ** CUDA API Summary (cuda_api_sum):
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)   Med (ns)   Min (ns)   Max (ns)   StdDev (ns)                      Name                     
+ --------  ---------------  ---------  ----------  ---------  --------  ----------  -----------  ---------------------------------------------
+     97.9    3571042262484     468512   7622093.5     7715.0      2044  1097985628   16831494.6  cudaStreamSynchronize                        
+      1.4      49446622762    6397984      7728.5     5781.0      3216   208012403     286537.2  cudaLaunchKernel                             
+      0.5      17650300014    1561816     11301.1     5351.0      2194    55775513     265580.9  cudaMemcpyAsync                              
+      0.0       1602795878       1176   1362921.7   536797.5     55818    57998672    3537078.3  cuMemSetAccess                               
+      0.0       1056757464     312072      3386.3      872.0       340    55930553     198307.2  cudaEventDestroy                             
+      0.0       1043308904     156020      6687.0     6413.0      5210     4450864      12744.7  cudaLaunchKernelExC_v11060                   
+      0.0        963625606     788156      1222.6      682.0       470    52851922      79934.1  cudaEventRecord                              
+      0.0        754378596     182691      4129.3     1903.0       521    35260695     179322.8  cudaEventQuery                               
+      0.0        732160677     624232      1172.9     1082.0       521       93320        639.1  cudaStreamWaitEvent                          
+      0.0        731756286     624032      1172.6      952.0       612    15390783      39307.3  cudaStreamIsCapturing_v10000                 
+      0.0        485281331        784    618981.3   267683.0     24267    45952423    2658261.3  cuMemCreate                                  
+      0.0        472844074         16  29552754.6  1750193.0      1543   114045499   47945773.6  cudaFree                                     
+      0.0        468488112     312240      1500.4     1302.0       340      543932       8062.7  cudaEventCreateWithFlags                     
+      0.0        453585437        392   1157105.7   250093.0     42803    30894454    3242401.8  cuMemImportFromShareableHandle               
+      0.0        445281590         16  27830099.4   714942.0     10240   114412137   49001998.0  cudaHostAlloc                                
+      0.0        440439933     312108      1411.2     1313.0       450    20153871      54981.4  cudaOccupancyMaxActiveBlocksPerMultiprocessor
+      0.0        290405373       1176    246943.3    18866.0      1884    55903040    1917688.3  cuMemMap                                     
+      0.0        256022308       1176    217706.0    58588.0     46790    21100791    1212314.2  cuMemUnmap                                   
+      0.0        152811637        392    389825.6   119686.5    104271     1941022     316320.1  cuMemExportToShareableHandle                 
+      0.0        128130982     156020       821.2      792.0       601      119902        545.0  cudaStreamGetCaptureInfo_v2_v11030           
+      0.0         96216203         12   8018016.9    36235.0     12775    38813613   13501166.3  cudaFreeHost                                 
+      0.0         54179411       2352     23035.5    11822.5       110    14894293     310020.1  cuMemRelease                                 
+      0.0         49996513         16   3124782.1  2039653.5    931049    12762983    2845349.7  cudaGetDeviceProperties_v2_v12000            
+      0.0         27663489      12768      2166.6     1753.0      1203      123458       1735.4  cudaEventSynchronize                         
+      0.0         19661476       1176     16718.9     2635.0      1132     1854235     105503.9  cuMemAddressReserve                          
+      0.0         10914722        512     21317.8     2144.0      1904      863058     106287.1  cudaStreamCreateWithPriority                 
+      0.0          6830606       4440      1538.4      411.0       250      295541      15645.6  cudaThreadExchangeStreamCaptureMode_v10010   
+      0.0          6440156         36    178893.2   121354.5      4438      505918     172019.5  cudaMalloc                                   
+      0.0          3451821       1176      2935.2     1373.0       801      843401      24627.9  cuMemAddressFree                             
+      0.0          3373524        388      8694.6     6914.0      3828      262186      20764.3  cudaMemsetAsync                              
+      0.0          1415214        784      1805.1      311.0       150      309738      19873.3  cuMemGetAllocationGranularity                
+      0.0           909643       3064       296.9      270.0       120        8025        227.8  cuGetProcAddress_v2                          
+      0.0           823975       1176       700.7      631.0       270        8817        415.6  cuMemRetainAllocationHandle                  
+      0.0            65384          8      8173.0     7624.5      4328       12534       4028.8  cudaStreamDestroy                            
+      0.0            54035          8      6754.4     6392.5      2434       13446       4398.3  cudaStreamCreateWithFlags                    
+      0.0            51168        116       441.1      400.5       221        3397        309.1  cuGetProcAddress                             
+      0.0            16962         12      1413.5     1232.5       972        2204        376.4  cuInit                                       
+      0.0             6042         12       503.5      276.0       180        1243        417.8  cuModuleGetLoadingMode                       
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\cuda_gpu_kern_sum.py]... 
+
+ ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
+
+ Time (%)  Total Time (ns)  Instances   Avg (ns)    Med (ns)   Min (ns)   Max (ns)   StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  ----------  ----------  --------  ----------  -----------  ----------------------------------------------------------------------------------------------------
+     99.3    2678809866944     156000  17171858.1  16881119.0     13280  1096870878   18320505.2  ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevComm *, unsigned long, ncclWork *)                   
+      0.1       1613879441     312000      5172.7      5344.0      3999        6656        569.9  void at::native::reduce_kernel<(int)128, (int)4, at::native::ReduceOp<float, at::native::func_wrapp…
+      0.0       1306163513     153000      8537.0      8352.0      8000        9920        440.9  ampere_sgemm_32x32_sliced1x4_tn                                                                     
+      0.0       1279115518     779980      1639.9      1472.0      1279        2177        286.8  void at::native::unrolled_elementwise_kernel<at::native::AUnaryFunctor<float, float, float, at::nat…
+      0.0       1106159411     156000      7090.8      7297.0      5024        9216       1036.2  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListScalarListMe…
+      0.0        815411405     156000      5227.0      5248.0      4992        5440         52.4  ampere_sgemm_32x32_sliced1x4_nt                                                                     
+      0.0        783804652     312000      2512.2      2368.0      2175        3296        323.2  void at::native::<unnamed>::fused_dropout_kernel_vec<float, float, unsigned int, (int)1, (int)4, bo…
+      0.0        765434325     156000      4906.6      4800.0      4193        5377        235.9  ampere_sgemm_32x128_nt                                                                              
+      0.0        745057740     159120      4682.4      4321.0      4128       35456       1408.2  ampere_sgemm_32x128_tn                                                                              
+      0.0        697990757     156000      4474.3      4351.0      4095        5185        302.6  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListScalarListMe…
+      0.0        622947173     156000      3993.3      3872.0      3807        4480        212.8  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListMetadata<(in…
+      0.0        597357487     156000      3829.2      3712.0      3551        4289        229.9  ampere_sgemm_128x32_nn                                                                              
+      0.0        588863342     156000      3774.8      3648.0      3039        4321        275.3  void at::native::reduce_kernel<(int)512, (int)1, at::native::ReduceOp<float, at::native::func_wrapp…
+      0.0        581577824     156000      3728.1      3648.0      3391        4480        256.0  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListMetadata<(in…
+      0.0        563762953     312000      1806.9      1824.0      1440        2305        215.3  void at::native::vectorized_elementwise_kernel<(int)4, void at::native::<unnamed>::masked_scale_ker…
+      0.0        540408633     156060      3462.8      3359.0      3040        4128        248.8  void at::native::reduce_kernel<(int)512, (int)1, at::native::ReduceOp<float, at::native::MeanOps<fl…
+      0.0        536285104     312000      1718.9      1632.0      1471        2112        183.2  void at::native::vectorized_elementwise_kernel<(int)4, at::native::BinaryFunctor<float, float, floa…
+      0.0        528122417     312120      1692.0      1600.0      1471        3104        187.6  void at::native::vectorized_elementwise_kernel<(int)4, at::native::<unnamed>::launch_clamp_scalar(a…
+      0.0        488551599     156000      3131.7      3008.0      2847        3681        236.7  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListMetadata<(in…
+      0.0        485236711     156060      3109.3      3135.0      2400        3553         92.2  std::enable_if<!T7, void>::type internal::gemvx::kernel<int, int, float, float, float, float, (bool…
+      0.0        458869536     156000      2941.5      2848.0      2751        3392        189.2  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListMetadata<(in…
+      0.0        453054013     156000      2904.2      2816.0      2655        3297        196.4  void at::native::<unnamed>::multi_tensor_apply_kernel<at::native::<unnamed>::TensorListMetadata<(in…
+      0.0        382962613     156000      2454.9      2273.0      1889        3264        285.3  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<<unna…
+      0.0        353569122     156000      2266.5      2144.0      1983        3392        218.5  void gemvNSP_kernel<float, float, float, float, (int)1, (int)32, (int)4, (int)1024, (bool)0, cublas…
+      0.0        326377089     156000      2092.2      1984.0      1823        2879        216.5  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIterator…
+      0.0        321819226     156060      2062.2      1919.0      1759        2912        335.8  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      0.0        317344705     156000      2034.3      1952.0      1760        2401        193.7  void gemmk1_kernel<int, float, (int)256, (int)5, (bool)0, (bool)0, (bool)0, (bool)0, cublasGemvTens…
+      0.0        315085897     156000      2019.8      1920.0      1791        2400        182.3  void at::native::vectorized_elementwise_kernel<(int)4, at::native::binary_cross_entropy_out_cuda(co…
+      0.0        304529704     156060      1951.4      1920.0      1600        3008        200.0  void at::native::vectorized_elementwise_kernel<(int)4, at::native::sigmoid_kernel_cuda(at::TensorIt…
+      0.0        256320492     156000      1643.1      1568.0      1407        2016        181.0  void at::native::vectorized_elementwise_kernel<(int)4, at::native::sigmoid_backward_kernel_cuda(at:…
+      0.0        248671112     156020      1593.8      1504.0      1375        2176        190.0  void at::native::vectorized_elementwise_kernel<(int)4, at::native::AUnaryFunctor<float, float, floa…
+      0.0        247730524     156000      1588.0      1504.0      1344        2049        181.2  void at::native::vectorized_elementwise_kernel<(int)4, at::native::BUnaryFunctor<float, float, floa…
+      0.0        226009446     156720      1442.1      1376.0      1183        1857        180.4  void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<float>, at::detail::…
+      0.0         98357268          4  24589317.0  25182754.5     12160    47979599   21341845.6  ncclDevKernel_AllGather_RING_LL(ncclDevComm *, unsigned long, ncclWork *)                           
+      0.0         53692970         16   3355810.6      7456.0      5568    25118645    7811645.2  ncclDevKernel_Broadcast_RING_LL(ncclDevComm *, unsigned long, ncclWork *)                           
+      0.0          1330049        300      4433.5      3936.0      3392        6881       1037.2  void at::native::reduce_kernel<(int)128, (int)4, at::native::ReduceOp<float, at::native::MeanOps<fl…
+      0.0           531204        180      2951.1      2912.0      2783        3296        133.0  void at::native::<unnamed>::CatArrayBatchedCopy_aligned16_contig<at::native::<unnamed>::OpaqueType<…
+      0.0           475645        184      2585.0      2592.0      2431        3553        156.2  void at::native::<unnamed>::CatArrayBatchedCopy_aligned16_contig<at::native::<unnamed>::OpaqueType<…
+      0.0           235423         60      3923.7      3936.0      3840        4001         45.3  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIterator…
+      0.0           121792         60      2029.9      2017.0      1984        2048         17.0  void at::native::vectorized_elementwise_kernel<(int)4, void at::native::compare_scalar_kernel<float…
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\cuda_gpu_mem_time_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Time) (cuda_gpu_mem_time_sum):
+
+ Time (%)  Total Time (ns)   Count   Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)            Operation           
+ --------  ---------------  -------  --------  --------  --------  --------  -----------  ------------------------------
+     66.3       1770946260  1092400    1621.2    1472.0      1279      2432        256.6  [CUDA memcpy Device-to-Device]
+     25.3        676433540   313196    2159.8    1504.0       991  15264911      37082.7  [CUDA memcpy Host-to-Device]  
+      8.4        224846192   156220    1439.3    1440.0      1056      7008        123.1  [CUDA memcpy Device-to-Host]  
+      0.0           592500      388    1527.1    1504.0      1407      3328        148.1  [CUDA memset]                 
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\cuda_gpu_mem_size_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Size) (cuda_gpu_mem_size_sum):
+
+ Total (MB)   Count   Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)            Operation           
+ ----------  -------  --------  --------  --------  --------  -----------  ------------------------------
+   4577.353   313196     0.015     0.000     0.000    12.581        0.174  [CUDA memcpy Host-to-Device]  
+   2008.856  1092400     0.002     0.000     0.000     0.012        0.004  [CUDA memcpy Device-to-Device]
+     12.635   156220     0.000     0.000     0.000     0.132        0.003  [CUDA memcpy Device-to-Host]  
+      0.341      388     0.001     0.000     0.000     0.009        0.001  [CUDA memset]                 
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\openmp_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain OpenMP event data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\opengl_khr_range_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain KHR Extension (KHR_DEBUG) data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\opengl_khr_gpu_range_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain GPU KHR Extension (KHR_DEBUG) data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\vulkan_marker_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain Vulkan Debug Extension (Vulkan Debug Util) data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\vulkan_gpu_marker_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain GPU Vulkan Debug Extension (GPU Vulkan Debug markers) data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\dx11_pix_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain DX11 CPU debug markers.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\dx12_gpu_marker_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain DX12 GPU debug markers.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\dx12_pix_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain DX12 CPU debug markers.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\wddm_queue_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain WDDM context data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\um_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\um_total_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\um_cpu_page_faults_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite] with [C:\Program Files\NVIDIA Corporation\Nsight Systems 2023.3.1\host-windows-x64\reports\openacc_sum.py]... 
+SKIPPED: D:\Summer_condition_monitoring\summer pnnl utep\fl_profile_converted.sqlite does not contain OpenACC event data.
+
