@@ -35,6 +35,7 @@ export LIBS=$LIB
 export PATH=$PATH:/global/common/software/m4647/public/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/global/common/software/m4647/public/lib
 ```
+
 If you are using the papi module and perftools-base moudle - use:
 
 ```bash
@@ -46,6 +47,11 @@ Then do the following commands under `papi/src`
 ./configure --prefix=$HOME --with-components="cuda"
 make install
 ```
+
+** Make sure you get into a compute node to pause DCGMI profiling to test PAPI**:
+    ```bash
+    dcgmi profile --pause
+    ```
 
 Before installing `cyPAPI`, set the required environment variables:
 ```bash
