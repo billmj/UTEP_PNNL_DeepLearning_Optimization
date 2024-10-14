@@ -32,6 +32,8 @@ export CC=cc
 export CXX=CC
 export LIB="-lpthread -ldl"
 export LIBS=$LIB
+export PATH=$PATH:/global/common/software/m4647/public/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/global/common/software/m4647/public/lib
 ```
 If you are using the papi module and perftools-base moudle - use:
 
