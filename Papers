@@ -53,6 +53,15 @@ Companion material: https://zenodo.org/records/6349605
 In Proceedings of the 3rd ACM SIGPLAN International Workshop on Machine Learning and Programming Languages (MAPL 2019). 
 Association for Computing Machinery, New York, NY, USA, 10–19. https://doi.org/10.1145/3315508.3329973
 
+13. Siyu Wu, Hailong Yang, Xin You, Ruihao Gong, Yi Liu, Zhongzhi Luan, and Depei Qian. 2024. PRoof: A Comprehensive Hierarchical Profiling 
+Framework for Deep Neural Networks with Roofline Analysis. In Proceedings of the 53rd International Conference on Parallel Processing 
+(ICPP '24). Association for Computing Machinery, New York, NY, USA, 822–832. https://doi.org/10.1145/3673038.3673116
+
+14. 	Hanpeng Hu, Chenyu Jiang, Yuchen Zhong, Yanghua Peng, Chuan Wu, Yibo Zhu, Haibin Lin, Chuanxiong Guo:
+dPRO: A Generic Performance Diagnosis and Optimization Toolkit for Expediting Distributed DNN Training. MLSys 2022
+
+15. 
+
 
 
 
