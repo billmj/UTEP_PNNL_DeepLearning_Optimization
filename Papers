@@ -60,7 +60,9 @@ Framework for Deep Neural Networks with Roofline Analysis. In Proceedings of the
 14. 	Hanpeng Hu, Chenyu Jiang, Yuchen Zhong, Yanghua Peng, Chuan Wu, Yibo Zhu, Haibin Lin, Chuanxiong Guo:
 dPRO: A Generic Performance Diagnosis and Optimization Toolkit for Expediting Distributed DNN Training. MLSys 2022
 
-15. 
+15. Wenxue Li, Xiangzhou Liu, Yuxuan Li, Yilun Jin, Han Tian, Zhizhen Zhong, Guyue Liu, Ying Zhang, and Kai Chen. 2024. Understanding 
+Communication Characteristics of Distributed Training. In Proceedings of the 8th Asia-Pacific Workshop on Networking (APNet '24). 
+Association for Computing Machinery, New York, NY, USA, 1–8. https://doi.org/10.1145/3663408.3663409
 
 
 
