@@ -131,7 +131,7 @@ def client_update(model, train_loader, criterion, optimizer, scheduler, num_epoc
 
     return model.state_dict(), epoch_losses
 
-def compare_updates(local_update, global_update, relevance_threshold=0.5):
+def compare_updates(local_update, global_update, relevance_threshold=0.65):
     """Compares local and global updates using selectve gradient alignment."""
     aligned_params = 0
     total_params = 0
