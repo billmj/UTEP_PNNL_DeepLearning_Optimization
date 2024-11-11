@@ -1,6 +1,0 @@
-
-Looks like a lot of time spent in synchronization in ncclGroupEnd() and cudaStreamSynchronize(). 
-See CUDA Stream Semantics — NCCL 2.22.3 documentation (nvidia.com) . 
-Batch size of 32 is pretty small. 
-
-Next is to try increasing that and see if that reduces the proportion of runtime spent in synchronization. 
