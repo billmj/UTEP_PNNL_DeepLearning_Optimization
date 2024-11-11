@@ -78,21 +78,26 @@ def create_experiment_dir(exp_name):
     return exp_dir
 
 class SimpleNN(nn.Module):
-    """A simple neural network model for anomaly detection."""
+    """Neural network model for federated anomaly detection."""
     def __init__(self, input_dim):
         super(SimpleNN, self).__init__()
-        self.fc1 = nn.Linear(input_dim, 16)
+        # Three hidden layers (256, 128, 64)
+        self.fc1 = nn.Linear(input_dim, 256)
         self.dropout1 = nn.Dropout(0.3)
-        self.fc2 = nn.Linear(16, 8)
+        self.fc2 = nn.Linear(256, 128)
         self.dropout2 = nn.Dropout(0.3)
-        self.fc3 = nn.Linear(8, 1)
+        self.fc3 = nn.Linear(128, 64)
+        self.dropout3 = nn.Dropout(0.3)
+        self.fc4 = nn.Linear(64, 1)  # Output layer for binary classification
 
     def forward(self, x):
         x = torch.relu(self.fc1(x))
         x = self.dropout1(x)
         x = torch.relu(self.fc2(x))
         x = self.dropout2(x)
-        return self.fc3(x)  # Removed sigmoid for stability during loss calculation
+        x = torch.relu(self.fc3(x))
+        x = self.dropout3(x)
+        return self.fc4(x)  # Binary classification output
 
 def adjust_learning_rate(num_clients, initial_lr):
     """Adjusts learning rate based on the number of clients."""
@@ -236,7 +241,62 @@ def federated_learning_with_async_comm_and_cmfl(rank, world_size, X_train, y_tra
     save_metrics(performance_metrics, "final_metrics_async_cmfl.csv", exp_dir)
     
     return model, performance_metrics, round_losses
+                                                    
+def simulate_client_dropouts(num_clients, dropout_rate, round_num, seed=None):
+    """
+    Simulates client dropouts based on probability-based simulation.
+    
+    Args:
+        num_clients (int): Total number of clients
+        dropout_rate (float): Probability of client dropout (0.1 to 0.5)
+        round_num (int): Current communication round number
+        seed (int, optional): Random seed for reproducibility
+        
+    Returns:
+        list: Boolean array where True indicates active client, False indicates dropped client
+    """
+    if seed is not None:
+        np.random.seed(seed + round_num)  # Different seed per round
+        
+    # Assign random probability to each client
+    client_probabilities = np.random.random(num_clients)
+    
+    # Client is active if its probability is above dropout rate
+    active_clients = client_probabilities >= dropout_rate
+    
+    return active_clients
 
+def handle_client_dropouts(clients, active_clients, global_model, checkpointing_interval):
+    """
+    Handles client dropouts using Weibull-based checkpointing as described in the paper.
+    
+    Args:
+        clients (list): List of client objects
+        active_clients (list): Boolean array indicating active clients
+        global_model: Current global model state
+        checkpointing_interval: Optimal checkpointing interval t_c*
+        
+    Returns:
+        list: Updated list of active clients after recovery attempts
+    """
+    current_time = time.time()
+    
+    for i, (client, is_active) in enumerate(zip(clients, active_clients)):
+        if not is_active:
+            # Check if checkpoint exists and is within valid interval
+            if hasattr(client, 'last_checkpoint_time') and \
+               (current_time - client.last_checkpoint_time) <= checkpointing_interval:
+                # Restore client state from checkpoint
+                client.load_checkpoint()
+                client.model.load_state_dict(global_model.state_dict())
+                active_clients[i] = True  # Client recovered
+                
+        elif (current_time - client.last_checkpoint_time) >= checkpointing_interval:
+            # Create checkpoint for active client
+            client.save_checkpoint()
+            client.last_checkpoint_time = current_time
+            
+    return active_clients
 def evaluate_model(model, X_test, y_test, device):
     """Evaluates the model on the test dataset."""
     model.eval()
